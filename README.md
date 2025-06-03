@@ -212,7 +212,9 @@ export class PostListComponent implements OnInit {
 ```
 
 
-
+# Start Created Angular App
+- install node
+- instal angular cli - npm install -g @angular/cli  (So If you not using / here then angular cli will be install only for current folder) 
 
 
 
