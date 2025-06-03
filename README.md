@@ -212,9 +212,23 @@ export class PostListComponent implements OnInit {
 ```
 
 
-# Start Created Angular App
+# 1 Start Created Angular App
 - install node
-- instal angular cli - npm install -g @angular/cli  (So If you not using / here then angular cli will be install only for current folder) 
+- instal angular cli - [npm install -g @angular/cli], [sudo npm install @angular/cli]  (So If you not using / here then angular cli will be install only for current folder)
+- ng new project_name
+- goto vs code and install code path click - shift+cmd+p then enter code and install shell commond
+- goto project path in terminal and code . (Now your vs code will be open)
+- ng serve ( terminal to run application)
+  
+# 2 Steps to Create the Application
+
+1. Step 1 : Install the Angular CLI using the following command
+    - npm install -g @angular/cli
+2. Step 2: Create a new Angular Project.
+    - ng new new-project
+    - cd new-project
+3. Step 3: To start the application run the following command.
+    - ng serve
 
 
 
