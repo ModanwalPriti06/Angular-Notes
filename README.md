@@ -1,7 +1,7 @@
 # Angular-Notes
 
 # What is Angular?
-- Angular is a TypeScript-based front-end framework developed by Google for building single-page web applications (SPAs). It uses components, dependency injection, and two-way data binding to create dynamic and scalable web apps.
+- Angular is a TypeScript-based component based front-end framework developed by Google for building single-page web applications (SPAs). It uses components, dependency injection, and two-way data binding to create dynamic and scalable web apps.
 - A framework building client application in HTML, CSS Javascript/Typescript.
 
 **SPA(Single Page Application):** An app that doesn't need to reload the page during it's use and work with the browswer. 
@@ -235,13 +235,11 @@ export class PostListComponent implements OnInit {
 
 ## Angular CLI 
 - Angular CLI (Command Line Interface) is a powerful tool provided by Angular to automate and streamline your development workflow.
+- The Angular CLI is a command-line interface tool that is used to initialize, develop, scaffold, and maintain Angular applications directly from a command shell.
 
 # Project - Structure
-<img width="305" alt="Screenshot 2025-06-04 at 12 38 12 PM" src="https://github.com/user-attachments/assets/21face63-8fc2-471e-8225-e8a34e33b792" />
 
-
-
-
+<img width="1021" alt="Screenshot 2025-06-04 at 4 08 34 PM" src="https://github.com/user-attachments/assets/1337b933-d663-4847-8439-29a46c5b5323" />
 
 
 
