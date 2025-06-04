@@ -245,7 +245,7 @@ export class PostListComponent implements OnInit {
 - <app-root> is a custom HTML tag (element) defined by Angular. It represents the root component of your Angular application — typically AppComponent. It's component selector of the app component.(Check app.ts file)
 
 # standalone
-#### In Angular, the standalone: true or standalone: false flag is used in a component’s metadata to indicate whether it is a "standalone" component or not.
+### In Angular, the standalone: true or standalone: false flag is used in a component’s metadata to indicate whether it is a "standalone" component or not.
 - ✅ standalone: true
     - This means the component does not belong to any Angular module (NgModule) and can be used independently.
     - You don’t need to declare it in any NgModule.
@@ -272,6 +272,51 @@ export class AppModule {}
 - ✅ Use standalone: true when you're building modern, lightweight, modular components.
 - ✅ Use standalone for micro frontends, dynamic loading, or component libraries.
 
+
+# Nesting Component
+- Have to add custom component in import in app.component.ts. In the example Login is my component.
+```
+
+@Component({
+  selector: 'app-root',
+  imports: [RouterOutlet, Login],
+  templateUrl: './app.html',
+  styleUrl: './app.css'
+})
+```
+# Template Property
+- In Angular, the template property is used inside the @Component decorator to define the HTML structure of the component inline (within the TypeScript file), instead of using an external file.
+ ```
+   @Component({
+  selector: 'app-welcome',
+  template: `<h1>Welcome to My App!</h1>`,  // 👈 inline HTML
+})
+export class WelcomeComponent {}
+```
+- If your component is big then use templateUrl instead of template
+```
+@Component({
+  selector: 'app-welcome',
+  templateUrl: './welcome.component.html',  // 👈 External HTML file
+})
+```
+# Style Property
+- The styles (not style) property in Angular is used in the @Component decorator to define inline CSS styles directly within the TypeScript file.
+```
+@Component({
+  selector: 'app-hello',
+  template: `<h1>Hello Angular</h1>`,
+  styles: [`
+    h1 {
+      color: blue;
+      font-family: Arial;
+    }
+  `]
+})
+export class HelloComponent {}
+```
+
+# Data Binding
 
 
 
