@@ -231,9 +231,13 @@ export class PostListComponent implements OnInit {
     - cd new-project
 3. Step 3: To start the application run the following command.
     - ng serve
+4. By default PORT - 4200
 
+## Angular CLI 
+- Angular CLI (Command Line Interface) is a powerful tool provided by Angular to automate and streamline your development workflow.
 
-
+# Project - Structure
+<img width="305" alt="Screenshot 2025-06-04 at 12 38 12 PM" src="https://github.com/user-attachments/assets/21face63-8fc2-471e-8225-e8a34e33b792" />
 
 
 
