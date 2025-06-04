@@ -239,9 +239,38 @@ export class PostListComponent implements OnInit {
 
 # Project - Structure
 
-<img width="1021" alt="Screenshot 2025-06-04 at 4 08 34 PM" src="https://github.com/user-attachments/assets/1337b933-d663-4847-8439-29a46c5b5323" />
+<img width="1142" alt="Screenshot 2025-06-04 at 5 13 01 PM" src="https://github.com/user-attachments/assets/18fa3e54-2f10-4b7c-87de-4f6550575747" />
 
+# <app.root></app.root>
+- <app-root> is a custom HTML tag (element) defined by Angular. It represents the root component of your Angular application — typically AppComponent. It's component selector of the app component.(Check app.ts file)
 
+# standalone
+#### In Angular, the standalone: true or standalone: false flag is used in a component’s metadata to indicate whether it is a "standalone" component or not.
+- ✅ standalone: true
+    - This means the component does not belong to any Angular module (NgModule) and can be used independently.
+    - You don’t need to declare it in any NgModule.
+    - You can bootstrap it directly using bootstrapApplication(LoginComponent) in main.ts.
+- standalone: false (or omitted)
+    - This is the default behavior in Angular before standalone components existed.
+    - ❗ Must be declared in an NgModule, like this:
+```
+//ts
+
+@NgModule({
+  declarations: [LoginComponent],
+})
+export class AppModule {}
+
+```
+| Feature                           | `standalone: true`             | `standalone: false` (default) |
+| --------------------------------- | ------------------------------ | ----------------------------- |
+| Needs to be declared in NgModule? | ❌ No                           | ✅ Yes                         |
+| Bootstrappable directly?          | ✅ Yes (`bootstrapApplication`) | ❌ No (use `NgModule` only)    |
+| Import dependencies?              | ✅ Uses `imports` array         | ❌ Uses module’s imports       |
+
+### 🎯 When to use?
+- ✅ Use standalone: true when you're building modern, lightweight, modular components.
+- ✅ Use standalone for micro frontends, dynamic loading, or component libraries.
 
 
 
