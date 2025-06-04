@@ -4,6 +4,8 @@
 - Angular is a TypeScript-based front-end framework developed by Google for building single-page web applications (SPAs). It uses components, dependency injection, and two-way data binding to create dynamic and scalable web apps.
 - A framework building client application in HTML, CSS Javascript/Typescript.
 
+**SPA(Single Page Application):** An app that doesn't need to reload the page during it's use and work with the browswer. 
+
 # Why use
 - Give our application a clean structure
 - Re-usable lots of Code
