@@ -317,7 +317,69 @@ export class HelloComponent {}
 ```
 
 # Data Binding
+- Data binding in Angular connects the component's TypeScript code and the HTML template, allowing them to communicate and stay in sync.
+- Angular provides 4 main types of data binding:
+1. Interpolation ({{ }})
+2. Property Binding ([property]="value")
+3. Event Binding ((event)="handler()")
+4. Two-Way Binding ([(ngModel)])
+
+### 1. Interpolation ({{ }})
+- Direction: Component ➡️ Template
+- Use: To display data from the component in the HTML.
+```
+// app.component.ts
+export class AppComponent {
+  title = 'Angular App';
+}
+```
+```
+<!-- app.component.html -->
+<h1>{{ title }}</h1>  <!-- Output: Angular App -->
+```
+### 2. Property Binding ([property]="value")
+- Direction: Component ➡️ Template
+- Use: To bind component values to HTML element properties.
+```
+// ts
+imgUrl = 'logo.png';
+```
+```
+// html
+<img [src]="imgUrl" />  <!-- Binds src to the component's imgUrl -->
+```
+### 3. Event Binding ((event)="handler()")
+- Direction: Template ➡️ Component
+- Use: To handle events like click, input, etc., from HTML and run functions in the component.
+```
+count = 0;
+increment() {
+  this.count++;
+}
+```
+```
+<button (click)="increment()">Click Me</button>
+<p>{{ count }}</p>
+```
+### 4. Two-Way Binding ([(ngModel)])
+- Direction: Component ⬄ Template (Two-Way)
+- Use: To sync data both ways — like form inputs.
+Requires FormsModule in app.module.ts
+```
+username = '';
+```
+```
+<input [(ngModel)]="username" placeholder="Enter name" />
+<p>Hello, {{ username }}</p>
+```
+
+| Type             | Syntax               | Direction        | Purpose                          |
+| ---------------- | -------------------- | ---------------- | -------------------------------- |
+| Interpolation    | `{{ value }}`        | Component → View | Show dynamic text                |
+| Property Binding | `[property]="value"` | Component → View | Set element properties           |
+| Event Binding    | `(event)="handler"`  | View → Component | Handle DOM events                |
+| Two-Way Binding  | `[(ngModel)]="prop"` | Both ways        | Sync input fields with component |
 
 
-
+### 5 Class Binding
 
