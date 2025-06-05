@@ -412,8 +412,8 @@ username = '';
 ```
 # Event Binding
 
+html
 ```
-// html
 <button (click)="eventButtonClick()">Event Binding</button>
 
 <input type="text" placeholder="Enter Name" (keyup)="keyUpFunc($event)"/>
@@ -422,6 +422,7 @@ username = '';
 
 <input type="text" placeholder="Enter a then Call function" (keyup.a)="keyUpAFilter($event)"/>  <!-- When click enter a then only call function -->
 ```
+ts
 ```
  // Event Binding
   eventButtonClick(){
@@ -440,5 +441,42 @@ username = '';
       console.log(event.target.value)
   }
 ```
+# Template Variable
+- A template variable in Angular is a way to reference a DOM element or Angular component directly from the HTML template — without needing to bind or store it in the component's .ts file.
+
+```
+<input #usernameInput type="text" />
+<button (click)="logUsername(usernameInput.value)">Log</button>
+```
+
+Example: 
+
+html
+```
+<input type="text" (keyup.enter)="tempVariable(user)" placeholder="Template Variable" #user id="userInputId"/>
+```
+ts
+```
+tempVariable(user: HTMLInputElement){
+    console.log(user.value)
+  }
+```
+
+# Two way Data Binding
+- 👉 When the user updates the input field, the component's property updates too
+ AND
+- 👉 When the component updates the property, the input field updates automatically.
+```
+ <input placeholder="2 way data binding" type="text" #username [value]= 'username' (keyup.enter)="twoWayDataBind(username)" />
+```
+```
+  username: string = 'Priit Modanwal'
+
+  twoWayDataBind(username: HTMLInputElement){
+    this.username = username.value
+    console.log(username)
+  }
+```
+Here in this example #username is template variable and first bydefault value will me 'Priit Modanwal' and after can change when user enter something
 
 
