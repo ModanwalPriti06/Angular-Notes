@@ -480,3 +480,7 @@ tempVariable(user: HTMLInputElement){
 Here in this example #username is template variable and first bydefault value will me 'Priit Modanwal' and after can change when user enter something
 
 
+# One-way Data binding Vs Two-way Data Binding
+- one-way Data Binding: can only bind data component to view.
+- two-way Data Binding: can bind data component to view and vice-versa.
+<img width="793" alt="Screenshot 2025-06-05 at 9 47 25 PM" src="https://github.com/user-attachments/assets/3dee23de-a132-44d8-bd40-9c78dfe860d8" />
