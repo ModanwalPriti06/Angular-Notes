@@ -214,7 +214,7 @@ export class PostListComponent implements OnInit {
 ```
 
 
-# 1 Start Created Angular App
+# 1. Start Created Angular App
 - install node
 - instal angular cli - [npm install -g @angular/cli], [sudo npm install @angular/cli]  (So If you not using / here then angular cli will be install only for current folder)
 - ng new project_name
@@ -222,7 +222,7 @@ export class PostListComponent implements OnInit {
 - goto project path in terminal and code . (Now your vs code will be open)
 - ng serve ( terminal to run application)
   
-# 2 Steps to Create the Application
+# 2. Steps to Create the Application
 
 1. Step 1 : Install the Angular CLI using the following command
     - npm install -g @angular/cli
@@ -381,5 +381,35 @@ username = '';
 | Two-Way Binding  | `[(ngModel)]="prop"` | Both ways        | Sync input fields with component |
 
 
-### 5 Class Binding
+### 5. Class Binding
+```
+//html
+  <button [class.btnHeight]= "fruitName == 'Apple' ">{{fruitName}}</button>
+
+//css
+.btnHeight {
+    height : 30px;
+    width : 80px;
+    background-color: chocolate;
+    border-radius: 10px;
+}
+//ts
+ fruitName : string = 'Apple'
+```
+# Style Binding
+```
+  <button [style.background] = " isActive ? 'green' : 'gold' ">Style Binding</button>
+```
+
+### Multiple Binding
+```
+<button
+  [style.background]=" isActive ? 'green' : 'gold' "
+  [style.border]=" isActive ? '2px solid red' : '5px dotted black' "
+>
+  Style Binding
+</button>
+```
+# Event Binding
+
 
