@@ -412,4 +412,33 @@ username = '';
 ```
 # Event Binding
 
+```
+// html
+<button (click)="eventButtonClick()">Event Binding</button>
+
+<input type="text" placeholder="Enter Name" (keyup)="keyUpFunc($event)"/>
+
+<input type="text" placeholder="Click Enter then Call function" (keyup.enter)="keyUpFilter($event)"/>  <!-- When click enter button then only call function -->
+
+<input type="text" placeholder="Enter a then Call function" (keyup.a)="keyUpAFilter($event)"/>  <!-- When click enter a then only call function -->
+```
+```
+ // Event Binding
+  eventButtonClick(){
+    console.log('button clicked')
+  }
+
+  keyUpFunc(event: any){
+    console.log('hii',event.target.value)
+  }
+
+  keyUpFilter(event: any){
+      console.log(event.target.value)
+  }
+
+   keyUpAFilter(event: any){
+      console.log(event.target.value)
+  }
+```
+
 
