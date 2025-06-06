@@ -484,3 +484,17 @@ Here in this example #username is template variable and first bydefault value wi
 - one-way Data Binding: can only bind data component to view.
 - two-way Data Binding: can bind data component to view and vice-versa.
 <img width="793" alt="Screenshot 2025-06-05 at 9 47 25 PM" src="https://github.com/user-attachments/assets/3dee23de-a132-44d8-bd40-9c78dfe860d8" />
+
+# Angular-Directive
+- An Angular Directive is a special instruction in Angular that adds behavior or changes the appearance of elements in the DOM.
+- (In short) An Angular directive is like a tool to control DOM behavior or styling directly from your component or HTML.
+## Types of Directive: There are 3 main types
+1. Component (also a directive)
+2. Structural Directive
+3. Attribute Directive
+4. Custome Directive
+   
+<img width="1050" alt="Screenshot 2025-06-05 at 9 51 01 PM" src="https://github.com/user-attachments/assets/dfed832f-5386-47db-b389-8d390ceeb0a6" />
+<img width="1255" alt="Screenshot 2025-06-05 at 9 53 01 PM" src="https://github.com/user-attachments/assets/01778bc2-a304-4c7d-8ac6-1958e25f71b8" />
+
+
