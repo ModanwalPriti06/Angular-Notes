@@ -497,4 +497,33 @@ Here in this example #username is template variable and first bydefault value wi
 <img width="1050" alt="Screenshot 2025-06-05 at 9 51 01 PM" src="https://github.com/user-attachments/assets/dfed832f-5386-47db-b389-8d390ceeb0a6" />
 <img width="1255" alt="Screenshot 2025-06-05 at 9 53 01 PM" src="https://github.com/user-attachments/assets/01778bc2-a304-4c7d-8ac6-1958e25f71b8" />
 
+1. Component (also a directive)
+- Technically a directive with a template.
+- You use it with a custom tag like <app-login>.
+```
+@Component({
+  selector: 'app-login',
+  template: `<h1>Login</h1>`
+})
+export class LoginComponent {}
+
+```
+
+2. Structural Directive
+- ➡️ Changes the structure of the DOM (adds/removes elements)
+
+| Example     | Description                       |
+| ----------- | --------------------------------- |
+| `*ngIf`     | Adds/removes element by condition |
+| `*ngFor`    | Repeats an element in a loop      |
+| `*ngSwitch` | Switch-case logic in HTML         |
+
+```
+<p *ngIf="isLoggedIn">Welcome!</p>
+<div *ngFor="let user of users">{{ user.name }}</div>
+```
+
+
+
+
 
