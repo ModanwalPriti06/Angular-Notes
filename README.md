@@ -500,6 +500,8 @@ Here in this example #username is template variable and first bydefault value wi
 1. Component (also a directive)
 - Technically a directive with a template.
 - You use it with a custom tag like <app-login>.
+- Load View inside the browser
+- 
 ```
 @Component({
   selector: 'app-login',
@@ -511,8 +513,9 @@ export class LoginComponent {}
 
 2. Structural Directive
 - ➡️ Changes the structure of the DOM (adds/removes elements)
+- New Versin - @If, @For, @Switch
 
-| Example     | Description                       |
+| OLD Example     | Description                   |
 | ----------- | --------------------------------- |
 | `*ngIf`     | Adds/removes element by condition |
 | `*ngFor`    | Repeats an element in a loop      |
@@ -522,6 +525,7 @@ export class LoginComponent {}
 <p *ngIf="isLoggedIn">Welcome!</p>
 <div *ngFor="let user of users">{{ user.name }}</div>
 ```
+
 
 
 
