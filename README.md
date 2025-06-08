@@ -524,3 +524,5 @@ For new way no need to add any new module and all.
 }
 ```
 # Ng Template
+- In Angular, ng-template is a structural directive element used to define HTML template fragments that are not rendered by default, but can be rendered conditionally or reused dynamically.
+

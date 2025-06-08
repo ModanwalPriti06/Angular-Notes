@@ -5,10 +5,10 @@
 
 
 <!-- string binding Vs property binding  -->
-<img [src]="imgUrl" [class.imgStyle] = 'imgUrl'/>
-<br/>
-<button disabled = "{{isDisabled}}"> String Interpolation </button>
-<button [disabled] = 'isDisabled'>Property Binding</button>
+<img [src]="imgUrl" [class.imgStyle]='imgUrl' />
+<br />
+<button disabled="{{isDisabled}}"> String Interpolation </button>
+<button [disabled]='isDisabled'>Property Binding</button>
 
 
 <!-- Angular Directive -->
@@ -18,15 +18,23 @@
 
 <!-- new way -->
 @if (isLogged) {
-    <h2>If New Way..</h2>
+<h2>If New Way..</h2>
 } @else {
-    <h2>else if new way..</h2>
+<h2>else if new way..</h2>
 }
 
 <!-- else condition -->
 
 <h2 *ngIf="!isLogged">else If structural directive</h2>
 @if (!isLogged) {
-    <h2>else if new way..</h2>
+<h2>else if new way..</h2>
 }
 
+<!-- ng template -->
+<h2 *ngIf="isLogged; else message">Structural Directive If</h2>
+
+<ng-template #message>
+    <h2>
+        [Loaded Ng template...]
+    </h2>
+</ng-template>
