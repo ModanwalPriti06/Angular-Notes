@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { NgIf } from '@angular/common'; // Needed for *ngIf
+import { NgFor, NgIf } from '@angular/common'; // Needed for *ngIf
 
 
 @Component({
   selector: 'app-login',
-  imports: [NgIf],
+  imports: [NgIf, NgFor],
   templateUrl: './login.html',
   standalone: true,
   styleUrl: './login.css',
@@ -25,5 +25,24 @@ export class Login {
   isAdmin: boolean = false;
   isMember: boolean = false;
   isGuest: boolean = true;
+
+  // ngfor Array
+  users: Array<string> = ['Andrew', 'abell', 'john']
+
+  // Fetch object
+  userObj: Array<any> = [
+    {id:0, name: 'priti', email: 'priti2gmail.com'},
+    {id:0, name: 'kirti', email: 'kirti4212gmail.com'},
+    {id:0, name: 'john', email: 'john68932gmail.com'},
+    {id:0, name: 'smith', email: 'smith832gmail.com'},
+    
+  ]
+
+  // add one more user
+addUser(){
+  console.log('hii')
+  let obj =  {id:5, name: 'Andrew', email: 'andrewsometh2w12gmail.com'}
+  this.userObj.push(obj);
+}
 
 }

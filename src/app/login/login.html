@@ -60,3 +60,29 @@
     <h3>Guest..</h3>
  }
 
+ <!-- ng for -->
+  <h1>Ng for</h1>
+
+  <ul>
+      <li *ngFor="let item of users">{{item}}</li>
+  </ul>
+
+ @for(item of users; track item){
+    <h3>{{item}}</h3>
+ }
+
+
+ <!-- fetch object Array -->
+  <h1>Object fetch</h1>
+  <ul>
+    <li *ngFor="let user of userObj"> {{user.name}}</li>
+  </ul>
+
+  <ul>
+    @for(user of userObj; track user){
+        <li> {{user.email}}</li>
+    }
+  </ul>
+
+  <button (click)="addUser()">Add user</button> <br/>
+

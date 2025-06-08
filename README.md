@@ -590,5 +590,39 @@ For new way no need to add any new module and all.
 1. When you want to reuse the same HTML block multiple times with different data
 2. Useful in creating dynamic views, modals, tab content, custom table cells, etc.
 
-#ngFor
+# ngFor
+- *ngFor is a structural directive in Angular used to iterate over a list or array and render a template for each item.
+```
+ <h3 *ngFor="let item of users">{{item}}</h3>
+```
+```
+@for(item of users; track item){
+    <h3>{{item}}</h3>
+ }
+```
 
+## fetch object then make type any (interface)
+//html
+```
+ <h1>Object fetch</h1>
+  <ul>
+    <li *ngFor="let user of userObj"> {{user.name}}</li>
+  </ul>
+
+  <ul>
+    @for(user of userObj; track user){
+        <li> {{user.email}}</li>
+    }
+  </ul>
+```
+//ts
+```
+// Fetch object
+  userObj: Array<any> = [
+    {id:0, name: 'priti', email: 'priti2gmail.com'},
+    {id:0, name: 'kirti', email: 'kirti4212gmail.com'},
+    {id:0, name: 'john', email: 'john68932gmail.com'},
+    {id:0, name: 'smith', email: 'smith832gmail.com'},
+    
+  ]
+```
