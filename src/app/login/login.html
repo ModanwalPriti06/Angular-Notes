@@ -1,0 +1,32 @@
+<p>login Page!</p>
+<!-- String Binding -->
+<h1>Name: {{name}}</h1>
+<h3>Email: {{email}}</h3>
+
+
+<!-- string binding Vs property binding  -->
+<img [src]="imgUrl" [class.imgStyle] = 'imgUrl'/>
+<br/>
+<button disabled = "{{isDisabled}}"> String Interpolation </button>
+<button [disabled] = 'isDisabled'>Property Binding</button>
+
+
+<!-- Angular Directive -->
+<!-- Structural  Directive @ngIf, @ngFor, @ngSwitch-->
+
+<h2 *ngIf="isLogged">Structural Directive If</h2>
+
+<!-- new way -->
+@if (isLogged) {
+    <h2>If New Way..</h2>
+} @else {
+    <h2>else if new way..</h2>
+}
+
+<!-- else condition -->
+
+<h2 *ngIf="!isLogged">else If structural directive</h2>
+@if (!isLogged) {
+    <h2>else if new way..</h2>
+}
+

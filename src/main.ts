@@ -1,6 +1,10 @@
 import { bootstrapApplication } from '@angular/platform-browser';
 import { appConfig } from './app/app.config';
 import { App } from './app/app';
+// import { Login } from './app/login/login';
 
-bootstrapApplication(App, appConfig)
+bootstrapApplication( App, appConfig)
   .catch((err) => console.error(err));
+
+
+  // Connection between index.html and login

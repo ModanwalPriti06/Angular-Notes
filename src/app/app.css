@@ -1,0 +1,23 @@
+.active {
+    background-color: blueviolet;
+}
+
+.inActive{
+    background-color: red;
+
+}
+.active-border{
+    border: 5px solid blue;
+}
+.inActive-border{
+    border: 5px solid black;
+
+}
+
+.btnHeight {
+    height : 50px;
+    width : 180px;
+    background-color: chocolate;
+    border-radius: 10px;
+}
+
