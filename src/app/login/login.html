@@ -38,3 +38,25 @@
         [Loaded Ng template...]
     </h2>
 </ng-template>
+
+<!-- Multilple condition -->
+ <!-- <h3 *ngIf="isAdmin; else member">Welcome Admin</h3>
+
+ <ng-template #member >
+     <h3 *ngIf="isMember else guest">Welcome Member</h3>
+ </ng-template>
+
+ <ng-template #guest>
+     <h3 *ngIf="isGuest">Welcome Guest</h3>
+ </ng-template> -->
+
+ @if(isAdmin){
+    <h3>Admin...</h3>
+
+ } @else if (isMember) {
+    <h3>Member...</h3>
+
+ } @else if (isGuest) {
+    <h3>Guest..</h3>
+ }
+

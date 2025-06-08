@@ -41,3 +41,14 @@
  <input [(ngModel)]="userName"/> <h3>{{userName}}</h3> 
 
 
+<!-- If Directive with number values -->
+ <button (click)="countLoginItem()">If Directive with number values</button>
+ <h4 *ngIf="loginCount > 4">Button Clicked more than 4 times</h4>
+
+
+ <!-- If Directive with String values -->
+  <h2 *ngIf="userRole == 'Admin' else isMember">Welcome Admin</h2>
+
+  <ng-template #isMember>
+    <h2>Welcome Member</h2>
+  </ng-template>

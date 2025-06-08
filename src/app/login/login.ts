@@ -21,6 +21,9 @@ export class Login {
   isDisabled: boolean = true
 
   // Directive
-  isLogged:boolean = false
+  isLogged: boolean = false;
+  isAdmin: boolean = false;
+  isMember: boolean = false;
+  isGuest: boolean = true;
 
 }

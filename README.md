@@ -523,6 +523,51 @@ For new way no need to add any new module and all.
     <h2>else if new way..</h2>
 }
 ```
+## Multiple Condition
+//old way
+```
+ <h3 *ngIf="isAdmin; else member">Welcome Admin</h3>
+
+ <ng-template #member >
+     <h3 *ngIf="isMember else guest">Welcome Member</h3>
+ </ng-template>
+
+ <ng-template #guest>
+     <h3 *ngIf="isGuest">Welcome Guest</h3>
+ </ng-template>
+ ```
+// new way
+```
+ @if(isAdmin){
+    <h3>Admin...</h3>
+
+ } @else if (isMember) {
+    <h3>Member...</h3>
+
+ } @else if (isGuest) {
+    <h3>Guest..</h3>
+ }
+```
+
 # Ng Template
 - In Angular, ng-template is a structural directive element used to define HTML template fragments that are not rendered by default, but can be rendered conditionally or reused dynamically.
+- It’s like a placeholder for content that Angular can insert into the DOM later, based on logic like *ngIf, *ngFor, or ngTemplateOutlet.
+
+```
+<ng-template>
+  <p>This won't be rendered directly.</p>
+</ng-template>
+```
+👆 This code won’t display anything unless Angular explicitly renders it.
+
+```
+<div *ngIf="isLoggedIn; else notLoggedIn">
+  Welcome, user!
+</div>
+
+<ng-template #notLoggedIn>
+  <p>Please log in.</p>
+</ng-template>
+```
+
 

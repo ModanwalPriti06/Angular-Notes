@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Login } from "./login/login";
 import { FormsModule } from '@angular/forms';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Login, FormsModule],
+  imports: [RouterOutlet, Login, FormsModule, NgIf],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -40,10 +41,17 @@ export class App {
 
   // two way bindinf
   userName: string = 'Priit Modanwal'
+  userRole: string = 'Admin1'
 
   twoWayDataBind(username: HTMLInputElement){
     this.userName = username.value
     console.log(this.userName)
+  }
+
+  loginCount: number = 0;
+  countLoginItem(){
+    this.loginCount++;
+    console.log(this.loginCount)
   }
 
 }
