@@ -52,3 +52,17 @@
   <ng-template #isMember>
     <h2>Welcome Member</h2>
   </ng-template>
+
+  <!-- ng-templateModule -->
+
+  <ng-template #joinNow>
+    😎
+    <button>Join Now</button>
+    😎😄
+  </ng-template>
+
+  <div>
+    <h4 [ngTemplateOutlet]="joinNow">Movie</h4>
+    <h4 [ngTemplateOutlet]="joinNow">Dance</h4>
+    <h4 [ngTemplateOutlet]="joinNow">Gym</h4>
+</div>

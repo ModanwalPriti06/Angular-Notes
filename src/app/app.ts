@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Login } from "./login/login";
 import { FormsModule } from '@angular/forms';
-import { NgIf } from '@angular/common';
+import { NgIf, NgTemplateOutlet } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Login, FormsModule, NgIf],
+  imports: [RouterOutlet, Login, FormsModule, NgIf, NgTemplateOutlet],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

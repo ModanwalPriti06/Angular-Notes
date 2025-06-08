@@ -549,7 +549,7 @@ For new way no need to add any new module and all.
  }
 ```
 
-# Ng Template
+# Ng Template - <ng-template></ng-template>
 - In Angular, ng-template is a structural directive element used to define HTML template fragments that are not rendered by default, but can be rendered conditionally or reused dynamically.
 - It’s like a placeholder for content that Angular can insert into the DOM later, based on logic like *ngIf, *ngFor, or ngTemplateOutlet.
 
@@ -570,4 +570,25 @@ For new way no need to add any new module and all.
 </ng-template>
 ```
 
+# Ng template outlet <ngTemplateOutlet>
+
+- We have to add new module - ngTemplateOutlet.
+- In Angular, ngTemplateOutlet is a directive that allows you to dynamically render an ng-template at runtime.
+
+```
+  <ng-template #joinNow>
+    <button>Join Now</button>
+  </ng-template>
+
+  <div>
+    <h4 [ngTemplateOutlet]="joinNow">Movie</h4>
+    <h4 [ngTemplateOutlet]="joinNow">Dance</h4>
+    <h4 [ngTemplateOutlet]="joinNow">Gym</h4>
+</div>
+```
+## 📌 Use Case:
+1. When you want to reuse the same HTML block multiple times with different data
+2. Useful in creating dynamic views, modals, tab content, custom table cells, etc.
+
+#ngFor
 
