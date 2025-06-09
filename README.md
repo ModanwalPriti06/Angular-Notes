@@ -105,7 +105,7 @@ export class AppComponent {
 2. Structural Directives
   - These directives are used to change the structure of the DOM using *ngFor,*ngSwitch and *ngIf.
 3. Attribute Directives
-  - These directives are used to change the behaviour of the DOM using ngStyle,ngModel and ngClass.
+  - These directives are used to change the behaviour of the DOM using ngStyle, ngModel and ngClass.
 4. Custom Directives
   - We can create custom directives using @Directive decorator and define the desired behaviour in the class.
 
@@ -689,3 +689,4 @@ For new way no need to add any new module and all.
  Ng Style Directive
 </h1>
 ```
+![alt text](<Screenshot 2025-06-09 at 11.34.14 PM.png>)
