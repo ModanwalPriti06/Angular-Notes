@@ -89,3 +89,40 @@
 
   <button (click)="addUser()">Add user</button> <br/>
 
+
+<h1>--Switch---</h1>
+<div [ngSwitch]="userRole">
+    <p *ngSwitchCase = "'Admin'">Welcome Admin</p>
+    <p *ngSwitchCase="'Member'">Welcome Member</p>
+    <p *ngSwitchCase="'Editor'">Welcome Editor</p>
+    <p *ngSwitchDefault="">Please Login</p>   <!-- if userRole is empty -->
+</div>
+
+<!-- new approch -->
+ @switch (userRole) {
+    @case ('Admin') {
+       <p>Welcome Admin</p>
+    }
+     @case ('Member') {
+       <p>Welcome Member</p>
+    }
+     @case ('Editor') {
+       <p>Welcome Editor</p>
+    }
+    @default {
+        <p>Please Login</p>
+    }
+ }
+
+<h1 [ngStyle]="{
+    color: 'red',
+    textTransform: userRole == 'Admin' ? 'upperCase': 'lowerCase'
+ }">
+ Ng Style Directive
+</h1>
+
+<h2 [ngClass]="{
+    'login' : isLogged
+    }">
+    ngClass Directive
+</h2>

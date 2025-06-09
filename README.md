@@ -662,3 +662,30 @@ For new way no need to add any new module and all.
     }
 ```
 # ngSwitch
+- The NgSwitch directive in Angular is used to conditionally display elements based on a matching expression — it's similar to the switch-case statement in JavaScript.
+```
+    <div [ngSwitch]="expression">
+    <div *ngSwitchCase="'A'">Case A matched</div>
+    <div *ngSwitchCase="'B'">Case B matched</div>
+    <div *ngSwitchDefault>Default case</div>
+    </div>
+```
+**🧠 Breakdown**:
+- ngSwitch: A directive applied to a container element that holds multiple possible views.
+- *ngSwitchCase: Defines a view for a specific matching value.
+- *ngSwitchDefault: Defines a fallback view when no case matches.
+
+# ngStyle
+- The NgStyle directive in Angular is used to dynamically apply inline styles to an HTML element using an object expression.
+**Sybtax:** 
+```
+    <div [ngStyle]="{'property': 'value'}"></div>
+```
+```
+<h1 [ngStyle]="{
+    color: 'red',
+    textTransform: userRole == 'Admin' ? 'upperCase': 'lowerCase'
+ }">
+ Ng Style Directive
+</h1>
+```
