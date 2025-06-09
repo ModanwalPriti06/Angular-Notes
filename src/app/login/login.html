@@ -75,12 +75,15 @@
  <!-- fetch object Array -->
   <h1>Object fetch</h1>
   <ul>
-    <li *ngFor="let user of userObj"> {{user.name}}</li>
+    <li *ngFor="let user of userObj; let i = index; let userCount = count;"> Count: {{userCount}}, Index:{{i}} - {{user.name}} <button (click)="onDelete(user)">Delete</button></li>
   </ul>
 
   <ul>
-    @for(user of userObj; track user){
-        <li> {{user.email}}</li>
+    @for(user of userObj; track user; let i = $index; let userCount = $count; let first = $first; let last = $last; let even = $even; let odd = $odd ){
+        <li>first: {{first}}, last:{{last}}, even:{{even}}, odd:{{odd}}, Count: {{userCount}}, {{i}} - {{user.email}} <button (click)="deleteFor(i)">Delete</button></li>
+    }
+    @empty {
+      <p>There is no data...</p>
     }
   </ul>
 

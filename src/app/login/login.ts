@@ -35,14 +35,22 @@ export class Login {
     {id:0, name: 'kirti', email: 'kirti4212gmail.com'},
     {id:0, name: 'john', email: 'john68932gmail.com'},
     {id:0, name: 'smith', email: 'smith832gmail.com'},
-    
   ]
 
   // add one more user
 addUser(){
-  console.log('hii')
   let obj =  {id:5, name: 'Andrew', email: 'andrewsometh2w12gmail.com'}
   this.userObj.push(obj);
+}
+
+// delete functionality
+onDelete(user: object){
+  let index = this.userObj.indexOf(user);
+  this.userObj.splice(index,1);
+}
+
+deleteFor(index: number){
+    this.userObj.splice(index,1);
 }
 
 }

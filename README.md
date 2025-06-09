@@ -626,3 +626,39 @@ For new way no need to add any new module and all.
     
   ]
 ```
+
+## index & Length & Count: 
+- we can get index of from ngFor
+```
+    <li *ngFor="let user of userObj; let i = index; "> {{userObj.length}} {{index} } - {{user.name}}</li>
+    <li *ngFor="let user of userObj; let userCount = count"> {{count}}</li>
+```
+- same for @for new syntax to get index
+```
+  <ul>
+    @for(user of userObj; track user; let i = $index; let userCount = $count ){
+        <li> {{userCount}} {{i}} - {{user.email}} <button (click)="deleteFor(i)"> Delete </button></li>
+    }
+  </ul>
+```
+
+## empty: If res is 0
+```
+<ul>
+    @for(user of userObj; track user; let i = $index; let userCount = $count ){
+        <li>Count: {{userCount}}, {{i}} - {{user.email}} <button (click)="deleteFor(i)">Delete</button></li>
+    }
+    @empty {
+      <p>There is no data...</p>
+    }
+</ul>
+```
+
+## first, last, even and odd
+
+```
+ @for(user of userObj; track user; let i = $index; let userCount = $count; let first = $first; let last = $last; let even = $even; let odd = $odd ){
+        <li>first: {{first}}, last:{{last}}, even:{{even}}, odd:{{odd}}, Count: {{userCount}}, {{i}} - {{user.email}} <button (click)="deleteFor(i)">Delete</button></li>
+    }
+```
+# ngSwitch
