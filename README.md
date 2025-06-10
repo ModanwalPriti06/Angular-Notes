@@ -690,3 +690,64 @@ For new way no need to add any new module and all.
 </h1>
 ```
 ![alt text](<Screenshot 2025-06-09 at 11.34.14 PM.png>)
+
+# Component
+- In Angular, a component is the basic building block of the UI. Each component controls a section of the screen, and a full Angular application is made up of many components.
+
+## Component Lifecycle (Key Hooks):
+1. ngOnInit(): Runs when component is initialized.
+2. ngOnDestroy(): Runs before component is destroyed
+3. Others: ngOnChanges(), ngAfterViewInit(), etc.
+
+## Angular Component Summary:
+
+| Concept                     | Description                            |
+| --------------------------- | -------------------------------------- |
+| `@Component`                | Decorator that defines a component     |
+| `selector`                  | Custom HTML tag for the component      |
+| `template` or `templateUrl` | The HTML view                          |
+| `styleUrls`                 | CSS/SCSS for styling the component     |
+| `class`                     | Logic and data (written in TypeScript) |
+
+## How to Generate a Component (CLI):
+```
+ng generate component component-name
+# or shorthand:
+ng g c component-name
+```
+
+## Parent ot child Example -
+
+```
+// child.component.ts
+import { Component, Input } from '@angular/core';
+
+@Component({
+  selector: 'app-child',
+  template: `<p>Received: {{ dataFromParent }}</p>`,
+  standalone: true,
+})
+export class ChildComponent {
+  @Input() dataFromParent: string = '';
+}
+```
+```
+// parent.component.ts
+import { Component } from '@angular/core';
+import { ChildComponent } from './child.component'; // adjust the path accordingly
+
+@Component({
+  selector: 'app-parent',
+  template: `<app-child [dataFromParent]="parentMessage"></app-child>`,
+  standalone: true,
+  imports: [ChildComponent], // Important if using standalone components
+})
+export class ParentComponent {
+  parentMessage = 'Hello from Parent!';
+}
+```
+- @Input() allows Angular to bind a value from parent to child.
+- If using standalone components, you must import the child in the parent’s imports array.
+- If using module-based structure, declare and export the child component in a shared or feature module.
+
+## Child to Parent Example - 

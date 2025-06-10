@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { NgClass, NgFor, NgIf, NgStyle, NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/common'; // Needed for *ngIf
 
 
@@ -56,5 +56,6 @@ deleteFor(index: number){
 // switch directive
 userRole: string = 'Admin'
 
-
+// parent to child
+@Input() loginFruitName: string = ''
 }
