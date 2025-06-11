@@ -1,11 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { NgClass, NgFor, NgIf, NgStyle, NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/common';
-import { PostsList } from "../posts-list/posts-list"; // Needed for *ngIf
+import { PostsList } from "../posts-list/posts-list";
+import { Card } from "../card/card"; // Needed for *ngIf
 
 
 @Component({
   selector: 'app-login',
-  imports: [NgIf, NgFor, NgSwitch, NgSwitchCase, NgSwitchDefault, NgStyle, NgClass, PostsList],
+  imports: [NgIf, NgFor, NgSwitch, NgSwitchCase, NgSwitchDefault, NgStyle, NgClass, PostsList, Card],
   templateUrl: './login.html',
   standalone: true,
   styleUrl: './login.css',

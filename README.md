@@ -832,3 +832,40 @@ parent component - app
     this.messageFromChild = msg
   }
 ```
+
+# @viewChild Vs @output
+![alt text](viewport.png)
+![alt text](output.png)
+
+- In viewport parent component can access all data of child component even parent component want that data or not still get access.
+- In output parent component can get access only useful data from child component.
+
+# Ng-content Content Projection
+- Use to send data parent to child component using ng-component
+- A special component in angular that allow to pass peace of data from parent to directly child component
+![alt text](ng-content.png)
+
+- ng-content in Angular is used for content projection, which means you can pass HTML content from a parent component into a child component and render it inside the child’s template. It’s similar to using slots in other frameworks.
+
+- Use case: When you want a reusable component (like a modal or card) that displays different content each time it's used.
+- when we have multiple ng-content then it will consider last ng-content for automatically load data. 
+
+```
+// login.html
+<app-card>
+   <h1>Multi port - ng-Content</h1>
+  <span header>username</span> <!--check in inspect code element section-->
+  <h1 body>John Doe</h1>
+  <button footer>Footer</button>
+</app-card>
+```
+```
+//card.html
+<div class="card">
+    <header><ng-content select= '[header]'></ng-content></header>
+    <div class="body">
+        <ng-content select="[body]"></ng-content>
+    </div>
+    <footer><ng-content select="[footer]"></ng-content></footer>
+</div>
+```

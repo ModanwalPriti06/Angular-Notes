@@ -4,10 +4,11 @@ import { Login } from "./login/login";
 import { FormsModule } from '@angular/forms';
 import { NgIf, NgTemplateOutlet } from '@angular/common';
 import { PostsList } from './posts-list/posts-list';
+import { Card } from "./card/card";
 
 @Component({
   selector: 'app-root',
-  imports: [ Login, PostsList, FormsModule, NgIf, NgTemplateOutlet],
+  imports: [Login, PostsList,Card, FormsModule, NgIf, NgTemplateOutlet, Card],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
