@@ -66,3 +66,9 @@
     <h4 [ngTemplateOutlet]="joinNow">Dance</h4>
     <h4 [ngTemplateOutlet]="joinNow">Gym</h4>
 </div>
+
+<app-posts-list (MessageEvent)="receiveMessage($event)"></app-posts-list>
+<p>{{messageFromChild}}</p>
+
+<p>{{message}}</p>
+
