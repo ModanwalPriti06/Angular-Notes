@@ -751,3 +751,84 @@ export class ParentComponent {
 - If using module-based structure, declare and export the child component in a shared or feature module.
 
 ## Child to Parent Example - 
+- To send data from a child component to a parent component in Angular, you use the @Output() decorator along with EventEmitter in the child component.
+
+Child Component
+```
+// child.component.ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-child',
+  template: `<p>Child Component Loaded</p>`,
+  standalone: true,
+})
+export class ChildComponent {
+  childMessage: string = 'Hello from Child 👶';
+}
+```
+Parent Component
+```
+// parent.component.ts
+import { Component, ViewChild, AfterViewInit } from '@angular/core';
+import { PostsList } from './posts-list/posts-list';
+
+@Component({
+  selector: 'app-root',
+  imports: [ Login, PostsList],
+  templateUrl: './app.html',
+  styleUrl: './app.css'
+})
+export class ParentComponent implements AfterViewInit {
+
+  @ViewChild(ChildComponent) childComponent!: ChildComponent;
+  messageFromChild: string = '';
+
+  ngAfterViewInit() {
+    // Access child component property
+    this.messageFromChild = this.childComponent.childMessage;
+  }
+}
+```
+
+## 🧠 Key Points
+1. @ViewChild(ChildComponent) gives access to the child instance.
+2. ngAfterViewInit() ensures the child is fully initialized before accessing its data.
+3. This method works only for direct parent-child component hierarchy.
+
+## 2nd Method
+
+child component - post list
+```
+import { Component, EventEmitter, Output } from '@angular/core';
+
+@Component({
+  selector: 'app-posts-list',
+  imports: [],
+  templateUrl: './posts-list.html',
+  styleUrl: './posts-list.css'
+})
+
+export class PostsList {
+  parentMessage: string = 'Button click from child and send to parent'
+
+  @Output() MessageEvent = new EventEmitter();
+  sendMessage(){
+    this.MessageEvent.emit(this.parentMessage) 
+  }
+}
+```
+parent component - app
+```
+//app.html
+<app-posts-list (MessageEvent)="receiveMessage($event)"></app-posts-list>
+<p>{{messageFromChild}}</p>
+```
+```
+//app.ts
+  messageFromChild: string = ''
+  receiveMessage(msg: string){
+    console.log(msg)
+    this.messageFromChild = msg
+  }
+```
