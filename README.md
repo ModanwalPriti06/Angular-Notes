@@ -869,3 +869,5 @@ parent component - app
     <footer><ng-content select="[footer]"></ng-content></footer>
 </div>
 ```
+
+# Lifecycle Hooks in Angular

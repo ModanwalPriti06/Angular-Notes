@@ -42,7 +42,7 @@ export class App implements AfterViewInit {
   }
 
   // two way bindinf
-  userName: string = 'Priit Modanwal'
+  userName: string = 'Priti Modanwal'
   userRole: string = 'Admin1'
 
   twoWayDataBind(username: HTMLInputElement){
