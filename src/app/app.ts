@@ -1,14 +1,15 @@
-import { Component, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, ViewChild, AfterViewInit, ViewContainerRef } from '@angular/core';
 // import { RouterOutlet } from '@angular/router';
 import { Login } from "./login/login";
 import { FormsModule } from '@angular/forms';
-import { NgIf, NgTemplateOutlet } from '@angular/common';
+import { NgComponentOutlet, NgIf, NgTemplateOutlet } from '@angular/common';
 import { PostsList } from './posts-list/posts-list';
 import { Card } from "./card/card";
+import { Profile } from './profile/profile';
 
 @Component({
   selector: 'app-root',
-  imports: [Login, PostsList,Card, FormsModule, NgIf, NgTemplateOutlet, Card],
+  imports: [Login, PostsList,Card, FormsModule, NgIf, NgTemplateOutlet, Card, NgComponentOutlet, Profile],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -60,9 +61,9 @@ export class App implements AfterViewInit {
   @ViewChild(PostsList) childMessage: any;
   message: string = '';
 
-  constructor(){
-    console.log(this.childMessage);
-  }
+  // constructor(){
+  //   console.log(this.childMessage);
+  // }
 
   ngAfterViewInit(){
         console.log(this.childMessage);
@@ -75,6 +76,25 @@ export class App implements AfterViewInit {
     this.messageFromChild = msg
 
   }
+// ------------------------LifeCycle--------------------------
+// Loading(){
+//   return PostsList;
+// }
+
+constructor(private viewContainer: ViewContainerRef){}
+loadComponent(){
+  this.viewContainer.createComponent(PostsList)
+}
+
+removeComponent(){
+  this.viewContainer.remove()
+}
+
+
+changeUser(){
+  this.userName = 'John Doe'
+}
+
 
 }
 

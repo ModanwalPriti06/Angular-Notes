@@ -871,3 +871,65 @@ parent component - app
 ```
 
 # Lifecycle Hooks in Angular
+- Lifecycle hooks in Angular are special methods that get called at specific moments in a component or directive's lifecycle. They allow you to tap into key events like creation, changes, and destruction of the component. Common lifecycle hooks include:
+
+1. ngOnInit() – called once after the component is initialized.
+2. ngOnChanges() – called when input properties change.
+3. ngDoCheck() – called during every change detection run.
+4. ngAfterViewInit() – called after the component's view is fully initialized.
+5. ngOnDestroy() – called right before the component is destroyed.
+
+ ![alt text](lifecycle.png)
+
+
+ ## Create Component and Remove Component
+
+ //app.html
+ ```
+  <button (click)="loadComponent()">Create Component</button>
+  <button (click)="removeComponent()">Remove Component</button>
+```
+
+//app.ts
+```
+  constructor(private viewContainer: ViewContainerRef){}
+  loadComponent(){
+    this.viewContainer.createComponent(PostsList)
+  }
+
+  removeComponent(){
+    this.viewContainer.remove()
+  }
+```
+
+## ngOnChanges Lifecycle Hooks
+- Call everytime an input property changes.
+
+//app.html
+```
+ <app-profile [pUserName]="userName"></app-profile>
+ <button (click)="changeUser()">Change User</button>
+```
+//profile.ts
+```
+  import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+  @Component({
+    selector: 'app-profile',
+    imports: [],
+    templateUrl: './profile.html',
+    styleUrl: './profile.css'
+  })
+  export class Profile implements OnChanges {
+    @Input() pUserName: string = ''
+
+    ngOnChanges() {
+      console.log('ng- triggered')
+    }
+  }
+```
+//app.ts
+```
+  changeUser(){
+    this.userName = 'John Doe'
+  }
+```

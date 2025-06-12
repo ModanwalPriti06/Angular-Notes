@@ -78,3 +78,15 @@
   <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
 </app-card>
 
+<h1>----------------------LifeCycle--------------------------</h1>
+
+<!-- <div>
+  <p *ngComponentOutlet="Loading()">Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic natus itaque omnis possimus est veniam, ullam delectus! Impedit, assumenda exercitationem!</p>
+</div> -->
+
+<button (click)="loadComponent()">Create Component</button>
+<button (click)="removeComponent()">Remove Component</button>
+
+<!-- Onchanes -->
+ <app-profile [pUserName]="userName"></app-profile>
+ <button (click)="changeUser()">Change User</button>
