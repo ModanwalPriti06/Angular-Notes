@@ -985,7 +985,7 @@ parent component - app
 ## ngAfterContentInit Lifecycle Hook
 -  Why use: Custom changes detection, Complex object, It is called very frequently.
 - ngAfterContentInit() is a lifecycle hook in Angular that is called after Angular projects external content (i.e., content passed using <ng-content>) into the component view.
-### When is it triggered?
+#### When is it triggered?
 - It runs once after the component’s content has been fully initialized and projected.
 ![alt text](ngAFter.png)
 
@@ -999,7 +999,7 @@ export class MyComponent implements AfterContentInit {
 }
 
 ```
-### ✅ Use Case in Real Projects:
+#### ✅ Use Case in Real Projects:
 - It’s useful when your component uses <ng-content> to project external content and you want to interact with or manipulate that content after it’s initialized.
 - Example: You want to apply some logic to projected child components or DOM elements.
 
@@ -1013,7 +1013,7 @@ export class MyComponent implements AfterContentInit {
 - ngAfterContentInit - triggered only once but ngAfterContentChecked called after every change detection cycle.
 - ngAfterContentChecked() is a lifecycle hook that is called every time Angular checks the projected content into a component (i.e., content placed inside <ng-content>).
 
-### ✅ When is it triggered?
+#### ✅ When is it triggered?
 - It is called after every change detection cycle that affects the content projected into the component — not just once, but multiple times, whenever Angular checks for changes.
 
 ```
@@ -1025,7 +1025,7 @@ export class MyComponent implements AfterContentInit {
     }
   }
 ```
-### ✅ Use Case:
+#### ✅ Use Case:
 - Use this hook if you need to perform custom change detection or updates after Angular has checked the projected content.
 
 | Hook                      | When it runs                                                       |
