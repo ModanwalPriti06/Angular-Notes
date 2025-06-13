@@ -904,6 +904,7 @@ parent component - app
 
 ## ngOnChanges Lifecycle Hooks
 - Call everytime an input property changes.
+- it will cheange or trigger only when input value changes
 
 //app.html
 ```
@@ -933,3 +934,101 @@ parent component - app
     this.userName = 'John Doe'
   }
 ```
+
+## ngOnInit - Lifecycle Hook
+- Calles once after the component is initialized.
+- ngOnInit is called only once inthe component lifecycle, right-after the component has been initialized.
+- It will triggered only once
+```
+  import { Component, Input, OnInit } from '@angular/core';
+
+  @Component({
+    selector: 'app-profile',
+    imports: [],
+    templateUrl: './profile.html',
+    styleUrl: './profile.css'
+  })
+  export class Profile implements OnInit {
+    // ngOnInit
+    ngOnInit(){
+      console.log('ng on init triggered')
+    }
+  }
+```
+![alt text](ngonInit.png)
+
+## Constructor
+- Constructor(), special method in a class that gets triggred automatically when an instance of the class created.
+- In Angular terms, it's the first method that's called when a component is instantiated.
+- Use cases - Keep it simple, Depedency Injection, Don't Access DOM.
+
+## ngDoCheck Lifecycle Hook
+- called during every change detection run.
+- Why use: Custom changes detection, Complex object, Performance Monitoring.
+```
+  import { Component, DoCheck, Input } from '@angular/core';
+
+  @Component({
+    selector: 'app-profile',
+    imports: [],
+    templateUrl: './profile.html',
+    styleUrl: './profile.css'
+  })
+  export class Profile implements DoCheck {
+    // ngDOCheck
+    ngDoCheck() {
+      console.log('ng do check log triggered')
+    }
+  }
+```
+
+## ngAfterContentInit Lifecycle Hook
+-  Why use: Custom changes detection, Complex object, It is called very frequently.
+- ngAfterContentInit() is a lifecycle hook in Angular that is called after Angular projects external content (i.e., content passed using <ng-content>) into the component view.
+### When is it triggered?
+- It runs once after the component’s content has been fully initialized and projected.
+![alt text](ngAFter.png)
+
+```
+import { AfterContentInit } from '@angular/core';
+
+export class MyComponent implements AfterContentInit {
+  ngAfterContentInit() {
+    console.log('Content projected into the component is now initialized.');
+  }
+}
+
+```
+### ✅ Use Case in Real Projects:
+- It’s useful when your component uses <ng-content> to project external content and you want to interact with or manipulate that content after it’s initialized.
+- Example: You want to apply some logic to projected child components or DOM elements.
+
+| Hook                   | Purpose                                                                           |
+| ---------------------- | --------------------------------------------------------------------------------- |
+| `ngOnInit()`           | Called after Angular initializes the component's own inputs and properties.       |
+| `ngAfterContentInit()` | Called after external content is projected into the component via `<ng-content>`. |
+
+## ngAfterContentChecked()
+- Called after every check of the component's content.
+- ngAfterContentInit - triggered only once but ngAfterContentChecked called after every change detection cycle.
+- ngAfterContentChecked() is a lifecycle hook that is called every time Angular checks the projected content into a component (i.e., content placed inside <ng-content>).
+
+### ✅ When is it triggered?
+- It is called after every change detection cycle that affects the content projected into the component — not just once, but multiple times, whenever Angular checks for changes.
+
+```
+  import { AfterContentChecked } from '@angular/core';
+
+  export class MyComponent implements AfterContentChecked {
+    ngAfterContentChecked() {
+      console.log('Content projection checked for changes.');
+    }
+  }
+```
+### ✅ Use Case:
+- Use this hook if you need to perform custom change detection or updates after Angular has checked the projected content.
+
+| Hook                      | When it runs                                                       |
+| ------------------------- | ------------------------------------------------------------------ |
+| `ngAfterContentInit()`    | Once, after content is projected into the view.                    |
+| `ngAfterContentChecked()` | Every time Angular performs change detection on projected content. |

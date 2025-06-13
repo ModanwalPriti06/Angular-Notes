@@ -66,7 +66,7 @@ export class App implements AfterViewInit {
   // }
 
   ngAfterViewInit(){
-        console.log(this.childMessage);
+        // console.log(this.childMessage);
         this.message = this.childMessage.childMessage
   }
 
@@ -81,6 +81,7 @@ export class App implements AfterViewInit {
 //   return PostsList;
 // }
 
+// NgOnChange
 constructor(private viewContainer: ViewContainerRef){}
 loadComponent(){
   this.viewContainer.createComponent(PostsList)
@@ -90,11 +91,11 @@ removeComponent(){
   this.viewContainer.remove()
 }
 
-
 changeUser(){
   this.userName = 'John Doe'
 }
 
 
+// NgOnInit check in profile.ts
 }
 

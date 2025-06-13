@@ -87,6 +87,15 @@
 <button (click)="loadComponent()">Create Component</button>
 <button (click)="removeComponent()">Remove Component</button>
 
-<!-- Onchanes -->
+<!-- NgOnchanes -->
  <app-profile [pUserName]="userName"></app-profile>
  <button (click)="changeUser()">Change User</button>
+
+ <!-- ngAfterContentInit -->
+  <app-profile>
+   <h1>{{userName}}</h1> 
+    <p>Content Projected From Parent</p>
+  </app-profile>
+
+
+
