@@ -1094,3 +1094,43 @@ ngOnDestroy() {
   console.log('Component destroyed');
 }
 ```
+---
+
+# Angular Pipes
+- In Angular, Pipes are a feature that allows you to transform data directly in the template before displaying it to the user. They are pure functions that take in a value, process it, and return a transformed output.
+- Pipes are a way transform data directly in your template. Think of them as little tools that take in some data, do some processing on it, and then return a nicely formatted output right.
+- Pipes make code easy to read and maintain and handle component in structured format and presentation.
+
+#### Power of Pipes
+- Pipes are incredibly powerful and make your templates much cleaner and easier to manage. So they’re especially useful when you’re dealing with data that needs to be displayed in a specific format or when you want to perform transformations that are purely presentational.
+
+### ✅ Key Points for Interview:
+1. Pipes are used with the pipe (|) symbol in templates.
+2. They help format data like dates, currency, text case, percentages, etc.
+3. Angular provides built-in pipes like DatePipe, CurrencyPipe, UpperCasePipe, LowerCasePipe, DecimalPipe, and PercentPipe.
+4. You can also create custom pipes when built-in pipes don't meet specific transformation needs.
+5. Pipes can be pure (default) or impure (run on every change detection).
+
+![alt text](pipes.png)
+
+# Upercase Pipe
+
+// app.ts
+```
+import { Component } from '@angular/core';
+import { UpperCasePipe } from '@angular/common';
+
+@Component({
+  selector: 'app-root',
+  imports: [UpperCasePipe],
+  templateUrl: './app.html',
+  styleUrl: './app.css'
+})
+export class AppComponent {
+  message: string = 'angular is awesome';
+}
+```
+app.html
+```
+  <h3>{{uppercasePipe | uppercase}}</h3>
+```

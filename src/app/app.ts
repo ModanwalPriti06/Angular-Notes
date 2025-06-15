@@ -2,14 +2,14 @@ import { Component, ViewChild, AfterViewInit, ViewContainerRef } from '@angular/
 // import { RouterOutlet } from '@angular/router';
 import { Login } from "./login/login";
 import { FormsModule } from '@angular/forms';
-import { NgComponentOutlet, NgIf, NgTemplateOutlet } from '@angular/common';
+import { NgComponentOutlet, NgIf, NgTemplateOutlet, UpperCasePipe } from '@angular/common';
 import { PostsList } from './posts-list/posts-list';
 import { Card } from "./card/card";
 import { Profile } from './profile/profile';
 
 @Component({
   selector: 'app-root',
-  imports: [Login, PostsList,Card, FormsModule, NgIf, NgTemplateOutlet, Card, NgComponentOutlet, Profile],
+  imports: [Login, PostsList,Card, FormsModule, NgIf, NgTemplateOutlet, Card, NgComponentOutlet, Profile, UpperCasePipe],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -95,7 +95,9 @@ changeUser(){
   this.userName = 'John Doe'
 }
 
-
 // NgOnInit check in profile.ts
+
+// pipe
+uppercasePipe: string = 'Upper Case Pipe'
 }
 

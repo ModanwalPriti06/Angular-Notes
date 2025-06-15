@@ -1,7 +1,7 @@
 <h1>Angular</h1>
 <app-login [loginFruitName]="fruitName"></app-login>
 
-<!-- class Binding -->
+<h1>────────── ⋆⋅☆ Class Binding ☆⋅⋆ ──────────</h1>
 <button
   [class.active]="isActive"
   [class.inActive]="!isActive"
@@ -22,7 +22,7 @@
   Style Binding
 </button>
 
-<!-- Event Binding -->
+<h1>────────── ⋆⋅☆ Event Binding ☆⋅⋆ ──────────</h1>
 <button (click)="eventButtonClick()">Event Binding</button>
 
 <input type="text" placeholder="Enter Name" (keyup)="keyUpFunc($event)"/>
@@ -78,7 +78,7 @@
   <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
 </app-card>
 
-<h1>----------------------LifeCycle--------------------------</h1>
+<h1>────────── ⋆⋅☆ LifeCycle ☆⋅⋆ ──────────-</h1>
 
 <!-- <div>
   <p *ngComponentOutlet="Loading()">Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic natus itaque omnis possimus est veniam, ullam delectus! Impedit, assumenda exercitationem!</p>
@@ -98,4 +98,7 @@
   </app-profile>
 
 
+<h1>────────── ⋆⋅☆ Pipe ☆⋅⋆ ──────────</h1>
 
+<!-- uppercase -->
+<h3>{{uppercasePipe | uppercase}}</h3>
