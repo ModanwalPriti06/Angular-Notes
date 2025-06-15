@@ -1,4 +1,4 @@
-import { AfterContentChecked, AfterContentInit, Component, DoCheck, Input, OnChanges, OnInit,  } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, AfterViewChecked, Component, DoCheck, Input, OnChanges, OnDestroy, OnInit,  } from '@angular/core';
 
 @Component({
   selector: 'app-profile',
@@ -6,33 +6,42 @@ import { AfterContentChecked, AfterContentInit, Component, DoCheck, Input, OnCha
   templateUrl: './profile.html',
   styleUrl: './profile.css'
 })
-export class Profile implements OnChanges, OnInit, DoCheck, AfterContentInit, AfterContentChecked {
+export class Profile implements OnChanges, OnInit, DoCheck, AfterContentInit, AfterContentChecked, AfterViewChecked, OnDestroy{
 
   // ngOnChange
   @Input() pUserName: string = ''
 
   ngOnChanges() {
-    console.log('ng- triggered')
+    console.log('-----ngOnChanges-----')
   }
 
   // ngOnInit
   ngOnInit(){
-    console.log('ng on init triggered')
+    console.log('---ngOnInit----')
   }
 
   // ngDOCheck
   ngDoCheck() {
-    console.log('ng do check log triggered')
+    console.log('----ngDoCheck----')
   }
 
   // ngAfterContentInit
   ngAfterContentInit(){
-    console.log('after content triggered')
+    console.log('----ngAfterContentInit----')
   }
 
   // ngAFtercontentchcked
   ngAfterContentChecked(){
-        console.log('after content checked')
+        console.log('---ngAfterContentChecked----')
   }
 
+  // ngAfterview chcked
+  ngAfterViewChecked(): void {
+    console.log('------ngAfterViewChecked -----')
+  }
+
+  // ngOndestroy
+  ngOnDestroy(){
+    console.log('----ngOnDestroy----')
+  }
 }

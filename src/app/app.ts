@@ -66,7 +66,7 @@ export class App implements AfterViewInit {
   // }
 
   ngAfterViewInit(){
-        // console.log(this.childMessage);
+        console.log('ngAfterViewInit-----',this.childMessage);
         this.message = this.childMessage.childMessage
   }
 

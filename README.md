@@ -1032,3 +1032,65 @@ export class MyComponent implements AfterContentInit {
 | ------------------------- | ------------------------------------------------------------------ |
 | `ngAfterContentInit()`    | Once, after content is projected into the view.                    |
 | `ngAfterContentChecked()` | Every time Angular performs change detection on projected content. |
+
+
+# ngAfterViewInit Lifecycle Hook
+- Only one runs
+- AfterViewInit is an Angular lifecycle interface that allows you to hook into the component's view initialization phase.
+- ngAfterViewInit() only runs once — not on every change to the view.
+
+### What is AfterViewInit?
+AfterViewInit is triggered once after Angular has:
+  1. Fully initialized the component's view (template)
+  2. Initialized all child views (components/directives inside your template)
+  3. Populated any @ViewChild() or @ViewChildren() queries.
+
+### ✅ When to Use It?
+Use AfterViewInit when:
+  1. You want to access DOM elements via @ViewChild
+  2. You need to initialize a third-party UI library (e.g., chart, modal)
+  3. You want to run code after the view is rendered
+
+# ngAfterViewChecked
+- Called after every check of the component's view.
+- Trigger every time Angular checks the view for changes.
+
+- 🟨 Trigger every time the view changes.
+- 🟧 ngAfterViewChecked is that since it runs frequently, it can impact performance if you're doing heavy computations or complex DOM manipulations within this hook.
+
+# ngOnDestroy Hooks Lifecycle Hooks
+- Called just before the component is destroyed.
+- ngOnDestroy() is a lifecycle hook in Angular that gets called just before a component or directive is destroyed.
+
+#### When is ngOnDestroy() called?
+- When the component is removed from the DOM (e.g., via *ngIf="false", route change, or component unloading).
+It's used for cleanup, like:
+
+1. Unsubscribing from Observables
+2. Clearing setInterval / setTimeout
+3. Detaching event listeners
+4. Releasing resources
+
+```
+  import { OnDestroy } from '@angular/core';
+
+  export class MyComponent implements OnDestroy {
+    ngOnDestroy() {
+      console.log('Component is being destroyed!');
+    }
+  }
+```
+```
+intervalId: any;
+
+ngOnInit() {
+  this.intervalId = setInterval(() => {
+    console.log('Running every 1 sec');
+  }, 1000);
+}
+
+ngOnDestroy() {
+  clearInterval(this.intervalId); // Prevent memory leak
+  console.log('Component destroyed');
+}
+```
