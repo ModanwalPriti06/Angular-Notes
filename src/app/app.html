@@ -102,3 +102,19 @@
 
 <!-- uppercase -->
 <h3>{{uppercasePipe | uppercase}}</h3>
+<h3>{{lowercasePipe | lowercase}}</h3>
+<h3>{{lowercasePipe | titlecase}}</h3>
+<h3>{{123476.89 | number}}</h3>
+<h3>{{0.7 | percent}}</h3>
+<h3>{{1000 | currency : 'EUR' : 'code'}}</h3>
+<h3>{{1000 | currency : 'GBP'}}</h3>
+<h3>{{ today | date : 'short'}}</h3>
+<h3>{{ today | date : 'medium'}}</h3>
+<h3>{{ today | date : 'long'}}</h3>
+<h3>{{ today | date : 'full'}}</h3>
+
+<!-- custom date format -->
+
+<h3>{{ today | date : 'dd-mm-yyyy'}}</h3>
+<h3>{{ today | date : 'MMMM-dd-yyyy'}}</h3>
+<h3>{{ today | date : 'hh:mm:ss a z'}}</h3> <!-- a means me am and pm-->

@@ -1113,16 +1113,16 @@ ngOnDestroy() {
 
 ![alt text](pipes.png)
 
-# Upercase Pipe
+# Upercase, Lowercase, Number, Percentage, Currency Pipe and Titlecase Pipe
 
 // app.ts
 ```
 import { Component } from '@angular/core';
-import { UpperCasePipe } from '@angular/common';
+import { UpperCasePipe, LowerCasePipe, TitleCasePipe, DecimalPipe, CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [UpperCasePipe],
+  imports: [UpperCasePipe, LowerCasePipe, TitleCasePipe, DecimalPipe, CurrencyPipe],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -1132,5 +1132,21 @@ export class AppComponent {
 ```
 app.html
 ```
-  <h3>{{uppercasePipe | uppercase}}</h3>
+  <h3>{{ uppercasePipe | uppercase }}</h3>
+  <h3>{{ lowercasePipe | lowercase }}</h3>
+  <h3>{{ lowercasePipe | titlecase }}</h3>
+  <h3>{{ 21364.89 | number }}</h3>
+  <h3>{{ 1000 | currency }}</h3>
+  <h3>{{ 1000 | currency : 'EUR'}}</h3> // change doller into euro
 ```
+
+# DATE and TIME Pipe
+```
+  <h3>{{ lowercasePipe | lowercase }}</h3>
+  <h3>{{ lowercasePipe | titlecase }}</h3>
+```
+
+# Custom Date Format
+
+
+
