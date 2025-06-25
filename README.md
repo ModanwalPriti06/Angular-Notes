@@ -1147,6 +1147,59 @@ app.html
 ```
 
 # Custom Date Format
+```
+  <h3>{{ today | date : 'dd-mm-yyyy'}}</h3>
+  <h3>{{ today | date : 'MMMM-dd-yyyy'}}</h3>
+  <h3>{{ today | date : 'hh:mm:ss a z'}}</h3> <!-- a means: am and pm-->
+```
+
+# Json Pipe
+app.html
+```
+<h3>{{ myUser | json}}</h3>
+<button (click)="convertJson()">Convert Json</button>
+```
+
+//app.ts
+```
+import jsonPipe
+
+  myUser: any = {
+    name: 'Kizie',
+    age: 23
+  }
+  convertJson(){
+    this.myUser = JSON.stringify(this.myUser)
+  }
+```
+# slice Pipe and chaining Pipe
+
+- Slice pipe: The slice pipe in Angular is used to create a subarray or substring from an array or string, similar to JavaScript’s .slice() method. It's a pure pipe, meaning it doesn't modify the original data.
+
+```
+Syntax:
+        {{ value | slice:start[:end] }}
+Example:
+        title: string = 'AngularInterview';
+```
+app.html
+```
+{{ title | slice:0:7 }} <!-- Output: 'Angular' -->
+
+<!-- Output: React, Vue -->
+<li *ngFor="let tech of items | slice:1:3">
+  {{ tech }}
+</li>
+```
+
+- The slice pipe is useful for pagination, displaying previews, or showing partial data without mutating the original array or string.
 
 
+### Chaining Pipe
+- Pipe chaining means using multiple pipes sequentially in a template expression. The output of the first pipe becomes the input to the next pipe.
+This helps transform the data step-by-step directly in the template.
 
+```
+Syntax: {{ value | pipe1 | pipe2 | pipe3 }}
+Example: {{ title | slice:0:7 | lowercase }}
+```

@@ -100,7 +100,7 @@
 
 <h1>────────── ⋆⋅☆ Pipe ☆⋅⋆ ──────────</h1>
 
-<!-- uppercase -->
+<!-- uppercase lowercase percent currency code -->
 <h3>{{uppercasePipe | uppercase}}</h3>
 <h3>{{lowercasePipe | lowercase}}</h3>
 <h3>{{lowercasePipe | titlecase}}</h3>
@@ -118,3 +118,13 @@
 <h3>{{ today | date : 'dd-mm-yyyy'}}</h3>
 <h3>{{ today | date : 'MMMM-dd-yyyy'}}</h3>
 <h3>{{ today | date : 'hh:mm:ss a z'}}</h3> <!-- a means me am and pm-->
+
+<!-- json pipe -->
+<h3>{{ myUser | json}}</h3>
+<button (click)="convertJson()">Convert Json</button>
+
+<!-- slice pipe -->
+<h3>{{lowercasePipe | slice: 6 : 11}}</h3>
+
+<!-- chaining pipe -->
+ Example: {{ lowercasePipe | slice: 6:11 | lowercase }}

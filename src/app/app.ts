@@ -2,14 +2,16 @@ import { Component, ViewChild, AfterViewInit, ViewContainerRef } from '@angular/
 // import { RouterOutlet } from '@angular/router';
 import { Login } from "./login/login";
 import { FormsModule } from '@angular/forms';
-import { CurrencyPipe, DatePipe, DecimalPipe, LowerCasePipe, NgComponentOutlet, NgIf, NgTemplateOutlet, PercentPipe, TitleCasePipe, UpperCasePipe } from '@angular/common';
+import { CurrencyPipe, DatePipe, DecimalPipe, JsonPipe, LowerCasePipe, NgComponentOutlet, NgIf, NgTemplateOutlet, PercentPipe, SlicePipe, TitleCasePipe, UpperCasePipe } from '@angular/common';
 import { PostsList } from './posts-list/posts-list';
 import { Card } from "./card/card";
 import { Profile } from './profile/profile';
 
 @Component({
   selector: 'app-root',
-  imports: [Login, PostsList,Card, FormsModule, NgIf, NgTemplateOutlet, Card, NgComponentOutlet, Profile, UpperCasePipe, LowerCasePipe, TitleCasePipe, DecimalPipe, PercentPipe, CurrencyPipe, DatePipe],
+  imports: [Login, PostsList,Card, FormsModule, NgIf, NgTemplateOutlet, Card, NgComponentOutlet, Profile, UpperCasePipe, LowerCasePipe, TitleCasePipe, DecimalPipe, PercentPipe, CurrencyPipe, DatePipe, JsonPipe, 
+    SlicePipe
+  ],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -101,5 +103,13 @@ changeUser(){
 uppercasePipe: string = 'Upper Case Pipe'
 lowercasePipe: string = 'HELLO PRITI LOWERCASE PIPE'
 today: Date =  new Date();
+  myUser: any = {
+    name: 'Kizie',
+    age: 23
+  }
+
+  convertJson(){
+    this.myUser = JSON.stringify(this.myUser)
+  }
 }
 
