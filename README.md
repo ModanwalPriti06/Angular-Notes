@@ -1415,6 +1415,5 @@ export interface Post {
     username?: string  //optional key
 }
 ```
----
 
 # Angular Form
