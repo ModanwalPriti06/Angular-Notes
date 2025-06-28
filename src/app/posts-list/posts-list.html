@@ -1,2 +1,8 @@
 <h1>Posts-list works!</h1>
 <button (click)="sendMessage()">Send Message to Parent</button>
+
+<!-- Service sending data from parent to chilg -->
+  <h3>────────── ⋆⋅☆ Services Sending users array from app(parent) to child(post-list) ☆⋅⋆ ──────────</h3>
+  <p>{{childUser | json}}</p>
+
+  <app-user></app-user>

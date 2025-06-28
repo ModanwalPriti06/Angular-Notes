@@ -1,8 +1,10 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { JsonPipe } from '@angular/common';
+import { Component, EventEmitter, Output, Input } from '@angular/core';
+import { User } from "../user/user";
 
 @Component({
   selector: 'app-posts-list',
-  imports: [],
+  imports: [JsonPipe, User],
   templateUrl: './posts-list.html',
   styleUrl: './posts-list.css'
 })
@@ -16,4 +18,6 @@ export class PostsList {
   sendMessage(){
     this.MessageEvent.emit(this.parentMessage) 
   }
+
+  @Input() childUser : any;
 }

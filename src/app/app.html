@@ -84,8 +84,10 @@
   <p *ngComponentOutlet="Loading()">Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic natus itaque omnis possimus est veniam, ullam delectus! Impedit, assumenda exercitationem!</p>
 </div> -->
 
+<!-- 
 <button (click)="loadComponent()">Create Component</button>
-<button (click)="removeComponent()">Remove Component</button>
+<button (click)="removeComponent()">Remove Component</button> 
+-->
 
 <!-- NgOnchanes -->
  <!-- <app-profile [pUserName]="userName"></app-profile>
@@ -128,4 +130,15 @@
 
 <!-- chaining pipe -->
  Example: {{ lowercasePipe | slice: 6:11 | lowercase }}
+
+ <!-- Service -->
+
+ <h1>────────── ⋆⋅☆ Services ☆⋅⋆ ──────────</h1>
+ <app-posts-list [childUser] = "users"></app-posts-list>
+
+ <!-- access users array from userServices -->
+<p>────────── ⋆⋅☆ App component Access from UserService data ☆⋅⋆ ──────────</p>
+
+ <p> {{userService.users | json}} </p>
+
  

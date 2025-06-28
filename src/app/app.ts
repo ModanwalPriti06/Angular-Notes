@@ -6,6 +6,7 @@ import { CurrencyPipe, DatePipe, DecimalPipe, JsonPipe, LowerCasePipe, NgCompone
 import { PostsList } from './posts-list/posts-list';
 import { Card } from "./card/card";
 import { Profile } from './profile/profile';
+import {UserService} from './services/user.service'
 
 @Component({
   selector: 'app-root',
@@ -83,15 +84,15 @@ export class App implements AfterViewInit {
 //   return PostsList;
 // }
 
-// NgOnChange
-constructor(private viewContainer: ViewContainerRef){}
-loadComponent(){
-  this.viewContainer.createComponent(PostsList)
-}
+// NgOnChange  can uncomment but using another constructir that is why comment
+// constructor(private viewContainer: ViewContainerRef){}
+// loadComponent(){
+//   this.viewContainer.createComponent(PostsList)
+// }
 
-removeComponent(){
-  this.viewContainer.remove()
-}
+// removeComponent(){
+//   this.viewContainer.remove()
+// }
 
 changeUser(){
   this.userName = 'John Doe'
@@ -111,5 +112,29 @@ today: Date =  new Date();
   convertJson(){
     this.myUser = JSON.stringify(this.myUser)
   }
+
+  // services
+  users: Array<any> = [
+  { name: 'John Doe', age: 30, email: 'john@doe.com' },
+  { name: 'John Smith', age: 20, email: 'john@smith.com' },
+  { name: 'Lisa Ann', age: 50, email: 'lisa@ann.com' },
+  { name: 'Sam Smith', age: 40, email: 'sam@smith.com' }
+];
+
+
+// userServices example
+userService: any;
+
+// constructor(){
+//   this.userService = new UserService();
+//   console.log('this.userService',this.userService)
+// }
+
+constructor(private userServiceDI: UserService){
+  this.userService = userServiceDI;
+}
+
+
+
 }
 
