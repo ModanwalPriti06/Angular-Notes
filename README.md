@@ -1417,3 +1417,5 @@ export interface Post {
 ```
 
 # Angular Form
+- Angular provides powerful support for building forms, which are essential for collecting user input. There are two main types of forms in Angular:
+
