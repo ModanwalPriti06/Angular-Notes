@@ -1380,3 +1380,40 @@ constructor(private postServiceDI: PostService){
 - Goto Addpost Button and check in code how working adding post when click button
 
 # Angular Interface
+- In Angular an interface is used to define the structure of an object — what properties and types it should have — without providing implementation logic.
+
+#### Example Using an Interface for Your posts Array
+```
+export interface Post {
+  id: number;
+  title: string;
+  post: string;
+}
+
+export class PostService {
+  posts: Post[] = [
+    { id: 1, title: 'Post Title 1', post: 'Dummy Post 1' },
+    { id: 2, title: 'Post Title 2', post: 'Dummy Post 2' },
+    { id: 3, title: 'Post Title 3', post: 'Dummy Post 3' },
+    { id: 4, title: 'Post Title 4', post: 'Dummy Post 4' },
+    { id: 5, title: 'Post Title 5', post: 'Dummy Post 5' },
+    { id: 6, title: 'Post Title 6', post: 'Dummy Post 6' }
+  ];
+
+  constructor() {}
+}
+
+```
+- suppose  in your object have title key but you are pushing object whoch have titleee key then it will throw error unknown key. same follow rule on your object value if in interface define string you are pushing number then throw error.
+
+```
+export interface Post {
+    id: number,
+    title: string,
+    post: string,
+    username?: string  //optional key
+}
+```
+---
+
+# Angular Form

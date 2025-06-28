@@ -8,6 +8,7 @@ import { Card } from "./card/card";
 import { Profile } from './profile/profile';
 import {UserService} from './services/user.service'
 import {PostService} from './services/post'
+import { Post } from './interfaces/post';
 
 @Component({
   selector: 'app-root',
@@ -138,7 +139,7 @@ constructor(private userServiceDI: UserService, private postServiceDI: PostServi
 }
 
 addPost(){
-  let postData = {
+  let postData:Post = {
     id:7,
     title: 'Lorem',
     post: 'Dummy Post'
