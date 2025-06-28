@@ -1209,3 +1209,116 @@ Example: {{ title | slice:0:7 | lowercase }}
 
 ![alt text](angular_Services.png)
 
+
+# Sending data from app to post list
+```
+// app.ts
+
+  // services
+  users: Array<any> = [
+  { name: 'John Doe', age: 30, email: 'john@doe.com' },
+  { name: 'John Smith', age: 20, email: 'john@smith.com' },
+  { name: 'Lisa Ann', age: 50, email: 'lisa@ann.com' },
+  { name: 'Sam Smith', age: 40, email: 'sam@smith.com' }
+];
+
+```
+```
+// app.html
+ <app-posts-list [childUser] = "users"></app-posts-list>
+```
+```
+// postlist.ts
+ @Input() childUser : any;
+```
+```
+// postlist.html
+ <p>{{childUser | json}}</p>
+```
+
+# Manually Create Services
+
+```
+/app/services/user.service.ts
+
+  export class UserService {
+      // services
+    users: Array<any> = [
+    { name: 'John Doe', age: 30, email: 'john@doe.com' },
+    { name: 'John Smith', age: 20, email: 'john@smith.com' },
+    { name: 'Lisa Ann', age: 50, email: 'lisa@ann.com' },
+    { name: 'Sam Smith', age: 40, email: 'sam@smith.com' }
+  ];
+  }
+```
+Here app.ts able to access userArray inside app
+```
+/app.ts
+
+// Create the new instance userServices example
+userService: any;
+
+constructor(){
+  this.userService = new UserService();
+  console.log('this.userService',this.userService)
+}
+```
+```
+//app.html
+ <p> {{userService.users | json}} </p>
+
+```
+## Dependency Injection in service
+- So whenever we are creating instance of user services then in memory also create new space and assign and fetch user service data access. Then issue will come how many component want to access user service data that many data will take space in memory and assign reference to each. So for this problem to solve angular provide one new feature
+called Dependency Injection.
+
+
+# Dependency Injection
+- It's create single instance of user service and share the same instance across the all component that needed.
+1. Create a Service
+```
+// src/app/services/user.service.ts
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'  // This makes the service available app-wide automatically
+})
+
+export class UserService {
+    users: Array<any> = [
+    { name: 'John Doe', age: 30, email: 'john@doe.com' },
+    { name: 'John Smith', age: 20, email: 'john@smith.com' },
+    { name: 'Lisa Ann', age: 50, email: 'lisa@ann.com' },
+    { name: 'Sam Smith', age: 40, email: 'sam@smith.com' }
+  ];
+
+  constructor(){
+    console.log('user services new instance created')
+  }
+}
+```
+```
+// src/app/app.component.ts
+import { Component } from '@angular/core';
+import { UserService } from './services/user.service';  // adjust path if needed
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html'
+})
+export class AppComponent {
+  users = [];
+
+  constructor(private userService: UserService) {
+    this.users = this.userService.getUsers();  // Using the injected service
+  }
+}
+```
+
+| Term                                   | Description                                                                     |
+| -------------------------------------- | ------------------------------------------------------------------------------- |
+| `@Injectable()`                        | Decorator that marks a class as available to be injected.                       |
+| `providedIn: 'root'`                   | Tells Angular to provide the service at the root level (singleton).             |
+| `constructor(private xyz: XyzService)` | Injects the service via constructor injection.                                  |
+| DI Container                           | Angular maintains a container that knows how to create and inject dependencies. |
+
