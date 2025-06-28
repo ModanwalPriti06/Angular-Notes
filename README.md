@@ -1381,6 +1381,7 @@ constructor(private postServiceDI: PostService){
 
 # Angular Interface
 - In Angular an interface is used to define the structure of an object — what properties and types it should have — without providing implementation logic.
+- add interface CLI commond : ng g interface interfaces/post
 
 #### Example Using an Interface for Your posts Array
 ```
