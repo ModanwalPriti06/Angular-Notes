@@ -1203,3 +1203,9 @@ This helps transform the data step-by-step directly in the template.
 Syntax: {{ value | pipe1 | pipe2 | pipe3 }}
 Example: {{ title | slice:0:7 | lowercase }}
 ```
+
+ # Angular Services:
+- An Angular service is a reusable class in Angular used to organize and share business logic, data, or functions across components and other services.
+
+![alt text](angular_Services.png)
+
