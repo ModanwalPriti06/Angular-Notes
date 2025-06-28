@@ -1322,3 +1322,61 @@ export class AppComponent {
 | `constructor(private xyz: XyzService)` | Injects the service via constructor injection.                                  |
 | DI Container                           | Angular maintains a container that knows how to create and inject dependencies. |
 
+![alt text](image.png)
+
+1. providedIn: 'root':  Angular registers it at the root level, meaning it creates just one instance of the service that can be shared across the whole app.
+2. Inject : In Angular, inject means to provide a class (usually a service) into another class where it's needed, without the consuming class having to create it manually.
+3. Dependency Injection: 
+  - We don’t have to manually create new instances or worry about passing services around between components.
+  - Making sure that we’re always working with a single, shared instance of the service. This keeps our app fast and memory-efficient.
+
+## Create serivce inside services folder from cli
+```
+ng g s serives/post
+```
+
+# Post Service
+```
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class PostService {
+
+  posts: Array<any> = [
+  { id: 1, title: 'Post Title 1', post: 'Dummy Post 1' },
+  { id: 2, title: 'Post Title 2', post: 'Dummy Post 2' },
+  { id: 3, title: 'Post Title 3', post: 'Dummy Post 3' },
+  { id: 4, title: 'Post Title 4', post: 'Dummy Post 4' },
+  { id: 5, title: 'Post Title 5', post: 'Dummy Post 5' },
+  { id: 6, title: 'Post Title 6', post: 'Dummy Post 6' }
+];
+
+getPost(){
+  return this.posts
+}
+
+  constructor() { }
+}
+
+```
+```
+//app.html
+ <ul>
+
+   @for (post of posts; track post) {
+    <li>{{post.title}}</li>
+   }
+ </ul>
+
+//app.ts
+
+posts: Array<any> = [];
+constructor(private postServiceDI: PostService){
+  this.posts = postServiceDI.getPost();
+}
+```
+- Goto Addpost Button and check in code how working adding post when click button
+
+# Angular Interface

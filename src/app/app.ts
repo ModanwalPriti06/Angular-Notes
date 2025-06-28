@@ -7,6 +7,7 @@ import { PostsList } from './posts-list/posts-list';
 import { Card } from "./card/card";
 import { Profile } from './profile/profile';
 import {UserService} from './services/user.service'
+import {PostService} from './services/post'
 
 @Component({
   selector: 'app-root',
@@ -124,17 +125,27 @@ today: Date =  new Date();
 
 // userServices example
 userService: any;
+posts: Array<any> = [];
 
 // constructor(){
 //   this.userService = new UserService();
 //   console.log('this.userService',this.userService)
 // }
 
-constructor(private userServiceDI: UserService){
+constructor(private userServiceDI: UserService, private postServiceDI: PostService){
   this.userService = userServiceDI;
+  this.posts = postServiceDI.getPost();
 }
 
+addPost(){
+  let postData = {
+    id:7,
+    title: 'Lorem',
+    post: 'Dummy Post'
+  }
 
+  this.postServiceDI.addPostService(postData)
+}
 
 }
 

@@ -140,5 +140,16 @@
 <p>────────── ⋆⋅☆ App component Access from UserService data ☆⋅⋆ ──────────</p>
 
  <p> {{userService.users | json}} </p>
+ <p> {{posts | json}} </p>
+
+ <ul>
+
+   @for (post of posts; track post) {
+    <li>{{post.title}}</li>
+   }
+ </ul>
+
+ <button (click)="addPost()">Add Post</button>
+
 
  
