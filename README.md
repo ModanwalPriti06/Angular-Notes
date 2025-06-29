@@ -1418,4 +1418,38 @@ export interface Post {
 
 # Angular Form
 - Angular provides powerful support for building forms, which are essential for collecting user input. There are two main types of forms in Angular:
+## 1. Template-driven forms
+- Suitable for simple forms.
+- Uses Angular directives in the HTML.
+- Automatically handles form creation using NgForm.
 
+### ✅ Key Features:
+- Easier to use with basic forms.
+- Minimal TypeScript.
+- Good for simple validation needs.
+
+### 🧩 Common Directives:
+- ngModel → two-way binding
+- required, minlength, maxlength, pattern → validators
+- #form="ngForm" → template reference
+
+```
+<form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+  <input type="text" name="username" ngModel required>
+  <button type="submit" [disabled]="userForm.invalid">Submit</button>
+</form>
+```
+## 2. Reactive forms (Model-driven)
+- Best for complex forms or dynamic validation.
+- Forms are defined in TypeScript, not in HTML.
+- Uses FormGroup, FormControl, FormArray.
+
+### ✅ Key Features:
+- More control and scalability.
+- Easier to write unit tests.
+- Form model is managed in the component class.
+
+### 🧩 Key Classes:
+- FormGroup – a group of FormControls
+- FormControl – represents individual input
+- FormBuilder – shortcut to build forms
