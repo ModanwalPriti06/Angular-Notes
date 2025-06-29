@@ -1539,5 +1539,9 @@ input.ng-invalid{
     <br/>
     <button>Submit</button>
   </form>
-  
+
+```
+- email paater
+```
+      pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
 ```

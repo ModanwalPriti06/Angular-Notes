@@ -183,7 +183,25 @@
     </div>
     <br/>
     <br/>
-    <input type="email" placeholder="Email" name="email" ngModel />
+    <input type="email" 
+      placeholder="Email" 
+      name="email" 
+      ngModel
+      required
+      #email="ngModel"
+      pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
+      [class.ng-invalid] = "email.invalid && email.touched"
+ />
+  <div class="alert">
+    @if (email.invalid && email.touched) {
+      @if (email.hasError('required')) {
+        <p>Email is required...</p>
+      }
+       @if (email.hasError('pattern')) {
+        <p>Invalid email address..</p>
+      }
+    }
+  </div>
     <br/>
     <br/>
     <input type="text" placeholder="Address" name="address" ngModel/>
