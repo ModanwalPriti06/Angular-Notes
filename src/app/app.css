@@ -21,3 +21,14 @@
     border-radius: 10px;
 }
 
+.form-center{
+    margin: 0 auto;
+    width: 250px;
+}
+.alert{
+    color: red;
+}
+
+input.ng-invalid{
+    border: 2px solid red;
+}

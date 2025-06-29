@@ -152,4 +152,47 @@
  <button (click)="addPost()">Add Post</button>
 
 
+<h1>────────── ⋆⋅☆ Angular Form ☆⋅⋆ ──────────</h1>
+
+<div class="form-center">
+  <h2>User Form</h2>
+  <form (submit)="formSubmit(f)" #f="ngForm">
+    <input type="text" 
+      placeholder="Name" 
+      name="fullName" 
+      ngModel 
+      #fullName = 'ngModel' 
+      (change)="getValue(fullName)" 
+      required=""
+      [class.ng-invalid] = "fullName.invalid && fullName.touched"
+      minlength="3"
+      maxlength="10"
+    />
+    <div class="alert">
+      @if (fullName.invalid && fullName.touched) {
+        @if (fullName.hasError('required')) {
+          <p>Full Name is required...</p>
+        }
+         @if (fullName.hasError('minlength')) {
+          <p>Name must be atleast 3 character...</p>
+        }
+         @if (fullName.hasError('maxlength')) {
+          <p>Name can't more than 10 character...</p>
+        }
+      }
+    </div>
+    <br/>
+    <br/>
+    <input type="email" placeholder="Email" name="email" ngModel />
+    <br/>
+    <br/>
+    <input type="text" placeholder="Address" name="address" ngModel/>
+    <br/>
+    <br/>
+    <button>Submit</button>
+  </form>
+</div>
+
+
+
  

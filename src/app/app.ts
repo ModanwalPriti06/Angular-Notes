@@ -13,7 +13,7 @@ import { Post } from './interfaces/post';
 @Component({
   selector: 'app-root',
   imports: [Login, PostsList,Card, FormsModule, NgIf, NgTemplateOutlet, Card, NgComponentOutlet, Profile, UpperCasePipe, LowerCasePipe, TitleCasePipe, DecimalPipe, PercentPipe, CurrencyPipe, DatePipe, JsonPipe, 
-    SlicePipe
+    SlicePipe, FormsModule
   ],
   templateUrl: './app.html',
   styleUrl: './app.css'
@@ -148,5 +148,17 @@ addPost(){
   this.postServiceDI.addPostService(postData)
 }
 
+
+// Angular From
+
+formSubmit(event: any){
+  // event.preventDefault();
+  console.log(event.value);
+  console.log('form submitted successfully!')
+}
+
+getValue(fullName: any){
+  console.log(fullName)
+}
 }
 

@@ -1432,6 +1432,7 @@ export interface Post {
 - ngModel → two-way binding
 - required, minlength, maxlength, pattern → validators
 - #form="ngForm" → template reference
+- formGroup Class(NgForm), formControl Class(NgModal)
 
 ```
 <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
@@ -1439,6 +1440,8 @@ export interface Post {
   <button type="submit" [disabled]="userForm.invalid">Submit</button>
 </form>
 ```
+![alt Template-driven forms](<Screenshot 2025-06-29 at 5.35.58 PM.png>)
+
 ## 2. Reactive forms (Model-driven)
 - Best for complex forms or dynamic validation.
 - Forms are defined in TypeScript, not in HTML.
@@ -1453,3 +1456,88 @@ export interface Post {
 - FormGroup – a group of FormControls
 - FormControl – represents individual input
 - FormBuilder – shortcut to build forms
+
+
+## ngForm (FormGroup Class)
+- Pass ngForm no need to use preventDefault() method.
+```
+//app.html
+  <form (submit)="formSubmit(f)" #f="ngForm">
+  </form>
+
+//app.ts
+formSubmit(event: any){
+  // event.preventDefault();
+  console.log(event);
+  console.log('form submitted successfully!')
+}
+```
+
+## ngModel (FromControl Class)
+- When we are passing ngModel in each input field to get input value the must be use name attributes also.
+```
+    <input type="text" placeholder="Address" name="address" ngModel/>
+    <input type="email" placeholder="Email" name="email" ngModel/>
+```
+
+## Validation - return ngModel
+```
+  <input type="text" placeholder="Name" name="fullName" ngModel #fullName = 'ngModel' (change)="getValue(fullName)" required=""/>
+
+//app.ts
+  getValue(fullName: any){
+    console.log(fullName)
+  }
+```
+
+## apply red color on input field
+```
+//app.css
+input.ng-invalid{
+    border: 2px solid red;
+}
+```
+- touch input field and click outside then border color will be red
+```
+  [class.ng-invalid] = "fullName.invalid && fullName.touched"
+```
+
+## minLength and maxLength Validation
+```
+ <form (submit)="formSubmit(f)" #f="ngForm">
+    <input type="text" 
+      placeholder="Name" 
+      name="fullName" 
+      ngModel 
+      #fullName = 'ngModel' 
+      (change)="getValue(fullName)" 
+      required=""
+      [class.ng-invalid] = "fullName.invalid && fullName.touched"
+      minlength="3"
+      maxlength="10"
+    />
+    <div class="alert">
+      @if (fullName.invalid && fullName.touched) {
+        @if (fullName.hasError('required')) {
+          <p>Full Name is required...</p>
+        }
+         @if (fullName.hasError('minlength')) {
+          <p>Name must be atleast 3 character...</p>
+        }
+         @if (fullName.hasError('maxlength')) {
+          <p>Name can't more than 10 character...</p>
+        }
+      }
+    </div>
+    <br/>
+    <br/>
+    <input type="email" placeholder="Email" name="email" ngModel />
+    <br/>
+    <br/>
+    <input type="text" placeholder="Address" name="address" ngModel/>
+    <br/>
+    <br/>
+    <button>Submit</button>
+  </form>
+  
+```
