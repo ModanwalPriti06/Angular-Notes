@@ -1602,12 +1602,28 @@ textarea.ng-invalid{
 new FormControl
 ```
 
+## Connect All Input to Form Control New Instance
 ```
 //card.html
- <input type="text" placeholder="Name" [formControl] = "fName"/>
- <p>{{fName.value}}</p>
+ <form>
+    <input type="text" placeholder="Name" [formControl] = "fName"/>
+     {{fName.value}}
+    <br/>
+    <br/>
+    <input type="email" placeholder="Email" [formControl] = "email"/>
+    {{email.value}}
+    <br/>
+    <br/>
+    <textarea [formControl]="address"></textarea>
+    {{address.value}}
+    <br/>
+    <button>Submit</button>
+  </form>
 
-//card.ts
+
+```
+//app.ts
+```
 import { Component } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -1620,8 +1636,61 @@ import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 export class Card {
 
   fName = new FormControl();
+  email = new FormControl();
+  address = new FormControl();
   constructor(){
     console.log('pritii', this.fName)
+  }
+
+}
+```
+
+## Reactive Form Groups
+```
+ <form [formGroup]="userForm" (ngSubmit)="handleSubmit()">
+    <input type="text" placeholder="Name" formControlName = "fName" [class.ng-invalid]="userForm.get('fName')?.touched && userForm.get('fName')?.invalid"/>
+     <div class="alert">
+        @if(userForm.get('fName')?.touched && userForm.get('fName')?.invalid){
+            @if (userForm.get('fName')?.hasError('required')) {
+                <p>Name is Required...</p>
+            }
+             @if (userForm.get('fName')?.hasError('minLength')) {
+                <p>Name can't be less than 3 character...</p>
+            }
+        }
+     </div>
+    <br/>
+    <br/> <textarea formControlName="address" [class.ng-invalid]="userForm.get('address')?.touched && userForm.get('address')?.invalid"></textarea>
+    <div class="alert">
+        @if(userForm.get('address')?.touched && userForm.get('address')?.invalid){
+            @if (userForm.get('address')?.hasError('required')) {
+                <p>Address is Required...</p>
+            }
+             @if (userForm.get('address')?.hasError('minLength')) {
+                <p>Address can't be less than 10 character...</p>
+            }
+        }
+     </div>
+    <br/>
+    <button>Submit</button>
+  </form>
+```
+//app.ts
+```
+export class Card {
+
+  
+  userForm  = new FormGroup({
+    fName : new FormControl('', [Validators.required, Validators.minLength(3)]),
+    email : new FormControl('', [Validators.required, Validators.email]),
+    address : new FormControl('', [Validators.required, Validators.minLength(10)])
+
+  });
+  constructor(){
+  }
+
+  handleSubmit(){
+    console.log(this.userForm);
   }
 }
 ```
