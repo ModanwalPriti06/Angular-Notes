@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-card',
@@ -9,9 +9,17 @@ import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 })
 export class Card {
 
-  fName = new FormControl();
+  
+  userForm  = new FormGroup({
+    fName : new FormControl('', [Validators.required, Validators.minLength(3)]),
+    email : new FormControl('', [Validators.required, Validators.email]),
+    address : new FormControl('', [Validators.required, Validators.minLength(10)])
+
+  });
   constructor(){
-    console.log('pritii', this.fName)
   }
 
+  handleSubmit(){
+    console.log(this.userForm);
+  }
 }
