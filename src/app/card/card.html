@@ -53,6 +53,24 @@
         }
      </div>
     <br/>
+    <!-- Enter multiple hobbies -->
+    <label>Hobbies</label>
+    <br/>
+    <input
+        type="text"
+        placeholder="Hobbies"
+        #hobbyInput
+        (keyup.enter)="addHobby(hobbyInput.value)"
+    />
+    <br/>
+    <br/>
+    <!-- print hobbies -->
+    <ul>
+        @for(hobby of hobbiesArray.controls; track $index){
+            <li>{{hobby.value}} <button (click)="delete($index)">Delete</button></li>
+        }
+    </ul>
+
     <button>Submit</button>
   </form>
 </div>

@@ -1678,8 +1678,6 @@ export class Card {
 //app.ts
 ```
 export class Card {
-
-  
   userForm  = new FormGroup({
     fName : new FormControl('', [Validators.required, Validators.minLength(3)]),
     email : new FormControl('', [Validators.required, Validators.email]),
@@ -1693,4 +1691,44 @@ export class Card {
     console.log(this.userForm);
   }
 }
+```
+## Form Array
+```
+<input
+        type="text"
+        placeholder="Hobbies"
+        #hobbyInput
+        (keyup.enter)="addHobby(hobbyInput.value)"
+/>
+<br/>
+<br/>
+<!-- print hobbies -->
+<ul>
+    @for(hobby of hobbiesArray.controls; track $index){
+        <li>{{hobby.value}} <button (click)="delete($index)">Delete</button></li>
+        }
+</ul>
+```
+```
+ userForm  = new FormGroup({
+    fName : new FormControl('', [Validators.required, Validators.minLength(3)]),
+    email : new FormControl('', [Validators.required, Validators.email]),
+    address : new FormControl('', [Validators.required, Validators.minLength(10)]),
+    hobbies: new FormArray([]),
+  });
+
+  hobbiesArray: FormArray =  this.userForm.get('hobbies') as FormArray; //get access outside
+  constructor(){
+  }
+
+   addHobby(hobby: string){
+    // const hobbiesArray = this.userForm.get('hobbies') as FormArray;
+    this.hobbiesArray.push(new FormControl(hobby))
+    console.log(this.hobbiesArray.value); // ✅ will show the array
+  }
+
+  delete(index: number){
+    this.hobbiesArray.removeAt(index)
+  }
+  
 ```
