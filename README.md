@@ -1418,7 +1418,8 @@ export interface Post {
 
 # Angular Form
 - Angular provides powerful support for building forms, which are essential for collecting user input. There are two main types of forms in Angular:
-## 1. Template-driven forms
+
+# 1. Template-driven forms
 - Suitable for simple forms.
 - Uses Angular directives in the HTML.
 - Automatically handles form creation using NgForm.
@@ -1442,7 +1443,8 @@ export interface Post {
 ```
 ![alt Template-driven forms](<Screenshot 2025-06-29 at 5.35.58 PM.png>)
 
-## 2. Reactive forms (Model-driven)
+# 2. Reactive forms (Model-driven)
+
 - Best for complex forms or dynamic validation.
 - Forms are defined in TypeScript, not in HTML.
 - Uses FormGroup, FormControl, FormArray.
@@ -1457,6 +1459,7 @@ export interface Post {
 - FormControl – represents individual input
 - FormBuilder – shortcut to build forms
 
+# ----- Teamplate Driven Form -------
 
 ## ngForm (FormGroup Class)
 - Pass ngForm no need to use preventDefault() method.
@@ -1545,3 +1548,43 @@ input.ng-invalid{
 ```
       pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
 ```
+
+## textarea validation
+```
+ <textarea 
+      placeholder="Address" 
+      name="address" 
+      ngModel 
+      #address="ngModel"
+      required
+      ></textarea>
+
+    <div class="alert">
+      @if (address.invalid && address.touched) {
+        @if (address.hasError('required')) {
+        <p>Address is required...</p>
+       }
+      }
+    </div>
+
+
+//app.css
+textarea.ng-invalid{
+    border: 2px solid red;
+}
+```
+## ngSubmit
+- ngSubmit is an Angular event binding that is triggered when a form is submitted.
+- It works with both template-driven and reactive forms.
+
+```
+  <form (ngSubmit)="formSubmit(f)" #f="ngForm">
+  </form>
+```
+
+## Disable submit button
+```
+    <button [disabled]="f.invalid">Submit</button>
+```
+
+# ----- Reactive Forms -------

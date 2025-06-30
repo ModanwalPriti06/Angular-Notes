@@ -156,7 +156,7 @@
 
 <div class="form-center">
   <h2>User Form</h2>
-  <form (submit)="formSubmit(f)" #f="ngForm">
+  <form (ngSubmit)="formSubmit(f)" #f="ngForm">
     <input type="text" 
       placeholder="Name" 
       name="fullName" 
@@ -204,10 +204,24 @@
   </div>
     <br/>
     <br/>
-    <input type="text" placeholder="Address" name="address" ngModel/>
+    <textarea 
+      placeholder="Address" 
+      name="address" 
+      ngModel 
+      #address="ngModel"
+      required
+      ></textarea>
+
+    <div class="alert">
+      @if (address.invalid && address.touched) {
+        @if (address.hasError('required')) {
+        <p>Address is required...</p>
+       }
+      }
+    </div>
     <br/>
     <br/>
-    <button>Submit</button>
+    <button [disabled]="f.invalid">Submit</button>
   </form>
 </div>
 
