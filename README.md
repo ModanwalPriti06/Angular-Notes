@@ -1732,3 +1732,17 @@ export class Card {
   }
   
 ```
+---
+ 
+# Section - Amgular Routing and Navigation
+- Routing is basically means navigating between pages.
+- We use Angular Routers to navigate through components.
+- Router is a main core building module of the Angular framework.
+- This includes a bunch of directives and modules which help us to implement routing and navigation.
+
+## Angualr - ROUTING (IMPLEMENTATION STEP)
+1. Configure the Routes
+2. Add Router-Outlet
+3. Add navigation link paths
+
+
