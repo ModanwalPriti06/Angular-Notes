@@ -1,7 +1,7 @@
 import { Component, ViewChild, AfterViewInit, ViewContainerRef } from '@angular/core';
 // import { RouterOutlet } from '@angular/router';
 import { Login } from "./login/login";
-import { FormsModule } from '@angular/forms';
+import { FormControl, FormsModule } from '@angular/forms';
 import { CurrencyPipe, DatePipe, DecimalPipe, JsonPipe, LowerCasePipe, NgComponentOutlet, NgIf, NgTemplateOutlet, PercentPipe, SlicePipe, TitleCasePipe, UpperCasePipe } from '@angular/common';
 import { PostsList } from './posts-list/posts-list';
 import { Card } from "./card/card";
@@ -132,6 +132,9 @@ posts: Array<any> = [];
 //   this.userService = new UserService();
 //   console.log('this.userService',this.userService)
 // }
+
+
+// + uncomment when using temperative form commented because oin pne file can use multiple constructor
 
 constructor(private userServiceDI: UserService, private postServiceDI: PostService){
   this.userService = userServiceDI;

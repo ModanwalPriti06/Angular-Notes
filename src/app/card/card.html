@@ -8,3 +8,23 @@
     </div>
     <footer><ng-content select="[footer]"></ng-content></footer>
 </div>
+
+
+<h1>────────── ⋆⋅☆ Reactive Form ☆⋅⋆ ──────────</h1>
+
+<div class="form-center">
+  <h2>User Form - Reactive Forms</h2>
+  <form>
+    <input type="text" placeholder="Name" [formControl] = "fName"/>
+     <p>{{fName.value}}</p> 
+    <br/>
+    <input type="email" 
+      placeholder="Email" 
+    />
+    <br/>
+    <br/>
+    <textarea></textarea>
+    <br/>
+    <button>Submit</button>
+  </form>
+</div>

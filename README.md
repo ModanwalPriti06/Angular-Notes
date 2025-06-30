@@ -1463,6 +1463,13 @@ export interface Post {
 
 ## ngForm (FormGroup Class)
 - Pass ngForm no need to use preventDefault() method.
+- ngForm is a directive that Angular automatically applies to <form> elements when using template-driven forms. It tracks the form’s overall state, such as:
+  - Validity (valid, invalid)
+  - Submission status (submitted)
+  - Dirtiness (dirty, pristine)
+  - Form control values (value)
+
+
 ```
 //app.html
   <form (submit)="formSubmit(f)" #f="ngForm">
@@ -1478,6 +1485,7 @@ formSubmit(event: any){
 
 ## ngModel (FromControl Class)
 - When we are passing ngModel in each input field to get input value the must be use name attributes also.
+- ngModel is a directive provided by Angular that enables two-way data binding between an HTML form element and a component property.
 ```
     <input type="text" placeholder="Address" name="address" ngModel/>
     <input type="email" placeholder="Email" name="email" ngModel/>
@@ -1588,3 +1596,32 @@ textarea.ng-invalid{
 ```
 
 # ----- Reactive Forms -------
+- In the reactive form we are doing all the thing in ts file not in html file.
+- Create the new instance of the class.
+```
+new FormControl
+```
+
+```
+//card.html
+ <input type="text" placeholder="Name" [formControl] = "fName"/>
+ <p>{{fName.value}}</p>
+
+//card.ts
+import { Component } from '@angular/core';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+@Component({
+  selector: 'app-card',
+  imports: [ FormsModule, ReactiveFormsModule],
+  templateUrl: './card.html',
+  styleUrl: './card.css'
+})
+export class Card {
+
+  fName = new FormControl();
+  constructor(){
+    console.log('pritii', this.fName)
+  }
+}
+```
